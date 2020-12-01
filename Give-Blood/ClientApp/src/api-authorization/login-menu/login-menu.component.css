@@ -1,0 +1,11 @@
+#login-button:hover, #register-button:hover {
+  color: red;
+  background-color: #eee;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#login-button, #register-button {
+  background-color: #F32013;
+  color: white;
+  margin-right: 2vw;
+}
