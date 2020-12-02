@@ -4,55 +4,88 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="color:red">@ViewData["Title"]</h1>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="row">
     <div class="col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
+            <h4 style="color:red">Create a new account.</h4>
             <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <div asp-validation-summary="All" class="text-danger" style="width: 100%; margin-bottom: 10px;"></div>
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-envelope icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.Email" class="form-control" placeholder="Email address" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
             </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <span asp-validation-for="Input.Email" class="text-danger" style="white-space:pre-wrap"></span>
+
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-key icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.Password" class="form-control" placeholder="Password" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
             </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-key icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
             </div>
-            <div class="form-group">
-                <label asp-for="Input.LastName"></label>
-                <input asp-for="Input.LastName" class="form-control" />
-                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-user" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
             </div>
-            <div class="form-group">
-                <label asp-for="Input.FirstName"></label>
-                <input asp-for="Input.FirstName" class="form-control" />
-                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-user" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+
+            <br />
+            <button type="submit" class="btn btn-primary" style="opacity:2;transition: 0.3s;background-color:red;text-decoration-color:white">Register</button>
+            <br />
+            <br />
+            <br />
+            <p>
+                <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" style="color:red;">Do you already have an account? Log in!</a>
+            </p>
+
         </form>
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h4>Use another service to register.</h4>
+            <h4 style="color:red">We are glad to see you!</h4>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
+                     <div style="position:absolute;top:100px;left:200px;">
+                         <img src="https://www.donateacar.com/wp-content/uploads/2018/01/Donate_Blood_Give_children_Save_Lives.jpg" />
+                         <p style="text-align: center">
+                             <b>
+                                This is the biggest joy you will experience in a life time. 
+                             </b>
+                         </p>
+                         <p style="text-align: center">
+                             <b>
+                                 The joy of giving life to others.
+                             </b>
+                         </p>
+                     </div>
                 }
                 else
                 {
