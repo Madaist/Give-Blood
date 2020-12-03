@@ -17,6 +17,7 @@ using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.BagdeRepository;
 using Give_Blood.Repositories.UserBadgesRepository;
 using Give_Blood.Repositories.DonationInfoRepository;
+using System;
 
 namespace Give_Blood
 {
@@ -58,6 +59,28 @@ namespace Give_Blood
             services.AddTransient<IBadgeRepository, BadgeRepository>();
             services.AddTransient<IUserBadgesRepository, UserBadgesRepository>();
             services.AddTransient<IDonationInfoRepository, DonationInfoRepository>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
+                
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
