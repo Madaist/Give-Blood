@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import Swal from 'sweetalert2';
@@ -14,8 +14,6 @@ export class HomeComponent implements OnInit{
   registerUserForm: FormGroup;
   loginUserForm: FormGroup;
   success: boolean;
-
-  //@ViewChild('donorRequirementsModal') donorRequirementsModal: DonorRequirementsModalComponent;
 
   constructor(public formBuilder: FormBuilder, private api: ApiService) {
   }
@@ -40,6 +38,7 @@ export class HomeComponent implements OnInit{
     let el = document.getElementById(id);
     el.scrollIntoView();
   }
+
 
   //register() {
   //  this.api['register'](this.registerUserForm.value).subscribe(() => {

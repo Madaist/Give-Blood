@@ -9,7 +9,8 @@
       <span class="navbar-toggler-icon icon-bar"></span>
       <span class="navbar-toggler-icon icon-bar"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+    <a class="btn btn-outline-light"  [routerLink]='["/authentication/logout"]' [state]='{ local: true }' title="Logout" id="logout-button">Logout</a>
+    <!--<div class="collapse navbar-collapse justify-content-end" id="navigation">
       <form class="navbar-form">
         <div class="input-group no-border">
           <input type="text" value="" class="form-control" placeholder="Search...">
@@ -53,6 +54,6 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div>-->
   </div>
 </nav>

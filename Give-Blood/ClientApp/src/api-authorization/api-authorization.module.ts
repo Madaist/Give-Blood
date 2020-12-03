@@ -6,6 +6,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { RouterModule } from '@angular/router';
 import { ApplicationPaths } from './api-authorization.constants';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminLayoutComponent } from '../app/layouts/admin-layout/admin-layout.component';
+import { HomeComponent } from '../app/home/home.component';
 
 @NgModule({
   imports: [
@@ -14,13 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forChild(
       [
         { path: ApplicationPaths.Register, component: LoginComponent },
-        { path: ApplicationPaths.Profile, component: LoginComponent },
+        { path: ApplicationPaths.Profile, component: AdminLayoutComponent },
         { path: ApplicationPaths.Login, component: LoginComponent },
         { path: ApplicationPaths.LoginFailed, component: LoginComponent },
         { path: ApplicationPaths.LoginCallback, component: LoginComponent },
         { path: ApplicationPaths.LogOut, component: LogoutComponent },
-        { path: ApplicationPaths.LoggedOut, component: LogoutComponent },
-        { path: ApplicationPaths.LogOutCallback, component: LogoutComponent }
+        { path: ApplicationPaths.LoggedOut, component: HomeComponent },
+        { path: ApplicationPaths.LogOutCallback, component: LogoutComponent },
       ]
     )
   ],

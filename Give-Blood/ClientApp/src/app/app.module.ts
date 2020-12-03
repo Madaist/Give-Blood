@@ -15,7 +15,7 @@ import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 import { ComponentsModule } from './components/components.module';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,13 +34,14 @@ import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
     AdminLayoutModule,
     RouterModule.forRoot([
       { path: 'login', component: HomeComponent },
-      { path: 'home', component: AdminLayoutComponent },
-      { path: '', component: HomeComponent },
+      { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard]},
+      { path: '', component: HomeComponent  },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ]),
     BrowserAnimationsModule,
     ModalModule.forRoot(),
-    ComponentsModule
+    ComponentsModule,
+    AngularFontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
