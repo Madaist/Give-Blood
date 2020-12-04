@@ -40,6 +40,16 @@
     <Compile Remove="Data\Migrations\20201128143614_Created_Initial_Tables.Designer.cs" />
     <Compile Remove="Data\Migrations\20201128143710_Created_Initial_Tables.cs" />
     <Compile Remove="Data\Migrations\20201128143710_Created_Initial_Tables.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201204170607_Seed_Data.cs" />
+    <Compile Remove="Data\Migrations\20201204170607_Seed_Data.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201204170927_Seed_Data.cs" />
+    <Compile Remove="Data\Migrations\20201204170927_Seed_Data.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201204171112_Seed_Data.cs" />
+    <Compile Remove="Data\Migrations\20201204171112_Seed_Data.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201204180220_Seed_Database.cs" />
+    <Compile Remove="Data\Migrations\20201204180220_Seed_Database.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201204181919_Seed_Database.cs" />
+    <Compile Remove="Data\Migrations\20201204181919_Seed_Database.Designer.cs" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
