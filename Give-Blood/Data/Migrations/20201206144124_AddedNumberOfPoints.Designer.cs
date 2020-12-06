@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Give_Blood.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201205211420_Removed_NrOfPoints_User")]
-    partial class Removed_NrOfPoints_User
+    [Migration("20201206144124_AddedNumberOfPoints")]
+    partial class AddedNumberOfPoints
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,6 +74,9 @@ namespace Give_Blood.Data.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
+
+                    b.Property<int>("NrOfPoints")
+                        .HasColumnType("int");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
