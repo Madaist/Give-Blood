@@ -12,7 +12,7 @@ namespace Give_Blood.Repositories.GenericRepository
         void Update(T entity);
         void Delete(T entity);
         void CreateRange(List<T> entities);
-        T FindById(int id);
+        T FindById(string id);
         bool SaveChanges();
     }
 

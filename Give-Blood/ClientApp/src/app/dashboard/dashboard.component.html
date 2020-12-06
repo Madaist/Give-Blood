@@ -11,8 +11,8 @@
             </div>
             <p class="card-category">Donated blood (total)</p>
             <h3 class="card-title">
-              2
-              <small>liters</small>
+              {{user.donatedBlood}}
+              <small>ml</small>
             </h3>
           </div>
           <div class="card-footer">
@@ -30,7 +30,9 @@
               <i class="material-icons">groups</i>
             </div>
             <p class="card-category">Number of lives saved</p>
-            <h3 class="card-title">1</h3>
+            <h3 class="card-title">
+              {{user.nrOfPeopleHelped}}
+            </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -46,7 +48,8 @@
               <i class="material-icons">local_hospital</i>
             </div>
             <p class="card-category">Number of donations</p>
-            <h3 class="card-title">2</h3>
+            <h3 class="card-title">
+              {{user.nrOfDonations}}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -63,7 +66,8 @@
               <!-- <i class="fa fa-hospital-user"></i> -->
             </div>
             <p class="card-category">Points</p>
-            <h3 class="card-title">+245</h3>
+            <h3 class="card-title">{{user.numberOfPoints}}
+            </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -73,8 +77,8 @@
         </div>
       </div>
     </div>
-    <p> General statistics </p>
-    <div class="row">
+    <!--<p> General statistics </p>-->
+    <!--<div class="row">
       <div class="col-md-4">
         <div class="card card-chart">
           <div class="card-header card-header-success">
@@ -125,15 +129,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="card">
           <div class="card-header card-header-tabs card-header-primary">
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
-                <span class="nav-tabs-title">Tasks:</span>
-                <ul class="nav nav-tabs" data-tabs="tabs">
+                <span class="nav-tabs-title">Badges:</span>
+                <!--<ul class="nav nav-tabs" data-tabs="tabs">
                   <li class="nav-item">
                     <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
                       <i class="material-icons">bug_report</i> Bugs
@@ -152,7 +156,7 @@
                       <div class="ripple-container"></div>
                     </a>
                   </li>
-                </ul>
+                </ul>-->
               </div>
             </div>
           </div>
@@ -160,7 +164,7 @@
             <div class="tab-content">
               <div class="tab-pane active" id="profile">
                 <table class="table">
-                  <tbody>
+                  <!--<tbody>
                     <tr>
                       <td>
                         <div class="form-check">
@@ -247,10 +251,10 @@
                         </button>
                       </td>
                     </tr>
-                  </tbody>
+                  </tbody>-->
                 </table>
               </div>
-              <div class="tab-pane" id="messages">
+              <!--<div class="tab-pane" id="messages">
                 <table class="table">
                   <tbody>
                     <tr>
@@ -299,8 +303,8 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
-              <div class="tab-pane" id="settings">
+              </div>-->
+              <!--<div class="tab-pane" id="settings">
                 <table class="table">
                   <tbody>
                     <tr>
@@ -370,19 +374,20 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div>-->
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-lg-6 col-md-12">
         <div class="card">
           <div class="card-header card-header-warning">
-            <h4 class="card-title">Employees Stats</h4>
-            <p class="card-category">New employees on 15th September, 2016</p>
+            <h4 class="card-title">League</h4>
+            <!--<p class="card-category">New employees on 15th September, 2016</p>-->
           </div>
           <div class="card-body table-responsive">
-            <table class="table table-hover">
+            <!--<table class="table table-hover">
               <thead class="text-warning">
               <th>ID</th>
               <th>Name</th>
@@ -415,7 +420,7 @@
                   <td>Korea, South</td>
                 </tr>
               </tbody>
-            </table>
+            </table>-->
           </div>
         </div>
       </div>
