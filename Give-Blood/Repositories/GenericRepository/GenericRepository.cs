@@ -32,7 +32,7 @@ namespace Give_Blood.Repositories.GenericRepository
             _table.Remove(entity);
         }
 
-        public T FindById(int id)
+        public T FindById(string id)
         {
             return _table.Find(id);
         }

@@ -1,22 +1,22 @@
+using Give_Blood.Data;
+using Give_Blood.Models;
+using Give_Blood.Repositories.BagdeRepository;
+using Give_Blood.Repositories.DonationInfoRepository;
+using Give_Blood.Repositories.DonationRepository;
+using Give_Blood.Repositories.LeagueRepository;
+using Give_Blood.Repositories.UserBadgesRepository;
+using Give_Blood.Repositories.UserRepository;
+using Give_Blood.Services.BadgeService;
+using Give_Blood.Services.UserService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
-using Give_Blood.Data;
-using Give_Blood.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Give_Blood.Repositories.UserRepository;
-using Give_Blood.Repositories.DonationRepository;
-using Give_Blood.Repositories.LeagueRepository;
-using Give_Blood.Repositories.BagdeRepository;
-using Give_Blood.Repositories.UserBadgesRepository;
-using Give_Blood.Repositories.DonationInfoRepository;
 using System;
 
 namespace Give_Blood
@@ -59,6 +59,9 @@ namespace Give_Blood
             services.AddTransient<IBadgeRepository, BadgeRepository>();
             services.AddTransient<IUserBadgesRepository, UserBadgesRepository>();
             services.AddTransient<IDonationInfoRepository, DonationInfoRepository>();
+
+            services.AddTransient<IBadgeService, BadgeService>();
+            services.AddTransient<IUserService, UserService>();
 
             services.Configure<IdentityOptions>(options =>
             {
