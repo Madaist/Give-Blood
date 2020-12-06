@@ -50,6 +50,8 @@
     <Compile Remove="Data\Migrations\20201204180220_Seed_Database.Designer.cs" />
     <Compile Remove="Data\Migrations\20201204181919_Seed_Database.cs" />
     <Compile Remove="Data\Migrations\20201204181919_Seed_Database.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201205211420_Removed_NrOfPoints_User.cs" />
+    <Compile Remove="Data\Migrations\20201205211420_Removed_NrOfPoints_User.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

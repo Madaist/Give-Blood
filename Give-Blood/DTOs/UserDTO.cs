@@ -18,6 +18,7 @@ namespace Give_Blood.DTOs
         public int NrOfPeopleHelped { get; set; }
         public int NrOfDonations { get; set; }
         public double DonatedBlood { get; set; }
+        
 
         public LeagueDTO League { get; set; }
         public ICollection<BadgeDTO> Badges { get; set; }
