@@ -56,6 +56,37 @@
             <span asp-validation-for="Input.FirstName" class="text-danger"></span>
 
             <br />
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-male icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.Weight" class="form-control" placeholder="Weight" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
+            </div>
+            <span asp-validation-for="Input.Weight" class="text-danger"></span>
+
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-tint icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.BloodType" list="bloodtypes"  class="form-control" placeholder="Blood Type" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
+                <datalist id="bloodtypes">
+                    <option value="A"></option>
+                    <option value="B"></option>
+                    <option value="AB"></option>
+                    <option value="O"></option>
+
+                </datalist>
+            </div>
+            <span asp-validation-for="Input.BloodType" class="text-danger"></span>
+
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fa fa-address-book icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.Address" class="form-control" placeholder="Address" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
+            </div>
+            <span asp-validation-for="Input.Address" class="text-danger"></span>
+
+            <br />
+
             <button type="submit" class="btn btn-primary" style="opacity:2;transition: 0.3s;background-color:red;text-decoration-color:white">Register</button>
             <br />
             <br />
