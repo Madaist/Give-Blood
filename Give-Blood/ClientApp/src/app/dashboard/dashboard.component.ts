@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
 import { ApiService } from '../../api.service';
-import { User } from '../models/user/user';
 import { UserDTO } from '../models/user/userDTO';
 
 @Component({

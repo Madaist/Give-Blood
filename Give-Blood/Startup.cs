@@ -53,6 +53,11 @@ namespace Give_Blood
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IDonationRepository, DonationRepository>();
             services.AddTransient<ILeagueRepository, LeagueRepository>();
