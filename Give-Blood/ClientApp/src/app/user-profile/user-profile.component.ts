@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../api.service';
+import { UserDTO } from '../models/user/userDTO';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  public user: UserDTO = new UserDTO()
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.api['getUser']().subscribe((data: UserDTO) => {
+      this.user = data;
+      console.log(this.user);
+    })
   }
 
 }
