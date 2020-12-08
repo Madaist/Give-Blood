@@ -8,12 +8,10 @@ namespace Give_Blood.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime? BirthDate { get; set; }
         public string BloodType { get; set; }
         public int? Weight { get; set; }
         public string LeagueId { get; set; }
         public string Address { get; set; }
-        public string Description { get; set; }
         public int NrOfPoints { get; set; }
 
         public virtual League League { get; set; }

@@ -1,5 +1,4 @@
-﻿using Give_Blood.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Give_Blood.Models
@@ -12,7 +11,6 @@ namespace Give_Blood.Models
         [ForeignKey("DonationInfo")]
         public string Type { get; set; }
 
-        public Double Quantity { get; set; }
         public DateTime Date { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual DonationInfo DonationInfo { get; set;}

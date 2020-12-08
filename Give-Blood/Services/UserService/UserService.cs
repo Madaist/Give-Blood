@@ -1,9 +1,10 @@
 ﻿using Give_Blood.DTOs;
 using Give_Blood.Models;
+using Give_Blood.Repositories.DonationInfoRepository;
+using Give_Blood.Repositories.DonationRepository;
 using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
-using System;
 using System.Linq;
 
 namespace Give_Blood.Services.UserService
@@ -13,12 +14,16 @@ namespace Give_Blood.Services.UserService
         private readonly IUserRepository _userRepository;
         private readonly IBadgeService _badgeService;
         private readonly ILeagueRepository _leagueRepository;
+        private readonly IDonationRepository _donationRepository;
+        private readonly IDonationInfoRepository _donationInfoRepository;
 
-        public UserService(IUserRepository userRepository, ILeagueRepository leagueRepository, IBadgeService badgeService)
+        public UserService(IUserRepository userRepository, ILeagueRepository leagueRepository, IBadgeService badgeService, IDonationRepository donationRepository, IDonationInfoRepository donationInfoRepository)
         {
             _userRepository = userRepository;
             _leagueRepository = leagueRepository;
             _badgeService = badgeService;
+            _donationRepository = donationRepository;
+            _donationInfoRepository = donationInfoRepository;
         }
 
         public UserDTO GetUserInfo(string userId)
@@ -31,14 +36,12 @@ namespace Give_Blood.Services.UserService
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                BirthDate = user.BirthDate,
                 Weight = user.Weight,
-                Description = user.Description,
                 Address = user.Address,
                 BloodType = user.BloodType,
                 Badges = _badgeService.GetAssignedBadgesDTO(user),
                 Donations = user.Donations,
-                NumberOfPoints =user.NrOfPoints
+                NumberOfPoints = user.NrOfPoints
             };
 
             League league = _leagueRepository.FindById(user.LeagueId);
@@ -46,22 +49,20 @@ namespace Give_Blood.Services.UserService
             userDTO.League = leagueDTO;
 
             int nrOfPeopleHelped = 0;
-            
             int nrOfDonations = 0;
-            double totalBloodQuantity = 0;
-            if (user.Donations != null && user.Donations.Any())
+
+            var userDonations = _donationRepository.FindByUserId(userId);
+            if (userDonations != null && userDonations.Any())
             {
-                foreach (Donation donation in user.Donations)
+                foreach (Donation donation in userDonations)
                 {
-                    nrOfPeopleHelped += donation.DonationInfo.NrOfPeopleHelped;
+                    nrOfPeopleHelped += _donationInfoRepository.FindById(donation.Type).NrOfPeopleHelped;
                     nrOfDonations++;
-                    totalBloodQuantity += donation.Quantity;
                 }
             }
             userDTO.NrOfPeopleHelped = nrOfPeopleHelped;
-      
             userDTO.NrOfDonations = nrOfDonations;
-            userDTO.DonatedBlood = totalBloodQuantity;
+            userDTO.DonatedBlood = nrOfDonations * 450 / 1000;
 
             return userDTO;
         }
@@ -80,13 +81,9 @@ namespace Give_Blood.Services.UserService
             if (user.NrOfPoints > 290 && user.NrOfPoints <= 400) user.LeagueId = "8";
             if (user.NrOfPoints > 400) user.LeagueId = "9";
 
-
-
+            _userRepository.Update(user);
 
         }
 
-
-
-       
     }
 }

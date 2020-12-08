@@ -87,10 +87,6 @@ namespace Give_Blood.Areas.Identity.Pages.Account
             [Display(Name = "Address")]
             public string Address { get; set; }
 
-
-
-
-
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -105,7 +101,8 @@ namespace Give_Blood.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, EmailConfirmed = true, LeagueId = "1" ,BloodType=Input.BloodType,Weight=Input.Weight,Address=Input.Address};
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, EmailConfirmed = true, LeagueId = "1", BloodType=Input.BloodType, Weight=Input.Weight, Address=Input.Address, NrOfPoints = 0};
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
