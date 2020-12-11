@@ -12,6 +12,7 @@ export const ROUTES: RouteInfo[] = [
   { path: 'user-profile', title: 'My Profile', icon: 'person', class: '' },
   { path: 'my-donations', title: 'My Donations', icon: 'content_paste', class: '' },
   { path: 'leaderboard', title: 'Leaderboard', icon: 'library_books', class: '' },
+  { path: 'scan-donation', title: 'Scan donation', icon: 'library_books', class: '' },
 ];
 
 @Component({

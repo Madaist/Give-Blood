@@ -13,6 +13,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { QrScannerComponent } from '../../qr-scanner/qr-scanner.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
   imports: [
@@ -26,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    ZXingScannerModule
 
   ],
   declarations: [
@@ -33,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
     UserProfileComponent,
     MyDonationsComponent,
     LeaderboardComponent,
+    QrScannerComponent
   ]
 })
 
