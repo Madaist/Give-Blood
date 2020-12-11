@@ -3,6 +3,7 @@ using Give_Blood.Models;
 using Give_Blood.Repositories.BagdeRepository;
 using Give_Blood.Repositories.DonationRepository;
 using Give_Blood.Repositories.UserBadgesRepository;
+using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.DonationService;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,14 @@ namespace Give_Blood.Services.BadgeService
         private readonly IBadgeRepository _badgeRepository;
         private readonly IUserBadgesRepository _userBadgeRepository;
         private readonly IDonationRepository _donationRepository;
+        private readonly IUserRepository _userRepository;
 
-        public BadgeService(IBadgeRepository badgeRepository, IUserBadgesRepository userBadgeRepository, IDonationRepository donationRepository)
+        public BadgeService(IBadgeRepository badgeRepository, IUserBadgesRepository userBadgeRepository, IDonationRepository donationRepository, IUserRepository userRepository)
         {
             _badgeRepository = badgeRepository;
             _userBadgeRepository = userBadgeRepository;
             _donationRepository = donationRepository;
+            _userRepository = userRepository;
         }
         public void AssignBadges(ApplicationUser user)
         {
@@ -156,9 +159,12 @@ namespace Give_Blood.Services.BadgeService
 
         public void AssignBadgeToUser(string badgeName, ApplicationUser user)
         {
-            var badgeId = _badgeRepository.FindByName(badgeName).Id;
-            _userBadgeRepository.Create(new UserBadges { Id = Guid.NewGuid().ToString(), BadgeId = badgeId, UserId = user.Id });
+            var badge = _badgeRepository.FindByName(badgeName);
+            _userBadgeRepository.Create(new UserBadges { Id = Guid.NewGuid().ToString(), BadgeId = badge.Id, UserId = user.Id });
             _userBadgeRepository.SaveChanges();
+
+            user.NrOfPoints += badge.NrOfPoints;
+            _userRepository.Update(user);
         }
 
         public ICollection<string> GetAssignedBadges(ApplicationUser user)
@@ -186,10 +192,32 @@ namespace Give_Blood.Services.BadgeService
                     var badge = _badgeRepository.FindById(userBadge.BadgeId);
                     var badgeName = badge.Name.Replace("_", " ");
                     badgeName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(badgeName.ToLower());
-                    badges.Add(new BadgeDTO { Name = badgeName, Icon = badge.Icon });
+                    badges.Add(new BadgeDTO { Name = badgeName, Icon = badge.Icon, NrOfPoints = badge.NrOfPoints });
                 }
             }
             return badges;
+        }
+
+        public ICollection<BadgeDTO> GetUnassignedBadgesDTO(string userId)
+        {
+            ICollection<BadgeDTO> unassignedBadges = new List<BadgeDTO>();
+            var assignedBadgeIds = _userBadgeRepository.FindByUserId(userId).Select(x => x.BadgeId);
+            var allPossibleBadges = GetAll().Select(x => x.Id);
+            var unassignedBadgeIds = allPossibleBadges.Except(assignedBadgeIds);
+
+            foreach (string badgeId in unassignedBadgeIds)
+            {
+                var badge = _badgeRepository.FindById(badgeId);
+                var badgeName = badge.Name.Replace("_", " ");
+                badgeName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(badgeName.ToLower());
+                unassignedBadges.Add(new BadgeDTO { Name = badgeName, Icon = badge.Icon, NrOfPoints = badge.NrOfPoints });
+            }
+            return unassignedBadges;
+        }
+
+        public ICollection<Badge> GetAll()
+        {
+            return _badgeRepository.GetAll();
         }
 
     }

@@ -19,4 +19,7 @@ export class ApiService {
   getUser()  {
     return this.http.get(this.baseUrl + '/User', { headers: this.header });
   }
+  getUnassignedBagdes() {
+    return this.http.get(this.baseUrl + '/Badge/GetUnassigned', { headers: this.header });
+  }
 }

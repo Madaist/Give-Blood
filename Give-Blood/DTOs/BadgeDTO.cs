@@ -9,5 +9,6 @@ namespace Give_Blood.DTOs
     {
         public string Name { get; set; }
         public string Icon { get; set; }
+        public int NrOfPoints { get; set; }
     }
 }
