@@ -11,8 +11,8 @@ import Swal from 'sweetalert2';
 export class HomeComponent implements OnInit{
   @Output() public sidenavToggle = new EventEmitter();
 
-  registerUserForm: FormGroup;
-  loginUserForm: FormGroup;
+  //registerUserForm: FormGroup;
+  //loginUserForm: FormGroup;
   success: boolean;
 
   constructor(public formBuilder: FormBuilder, private api: ApiService) {
@@ -20,24 +20,24 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.registerUserForm = this.formBuilder.group({
-      firstName: [null, Validators.required],
-      lastName: [null, Validators.required],
-      email: [null, Validators.compose([Validators.required, Validators.email])],
-      phoneNumber: [null, Validators.required],
-      password: [null, Validators.required]
-    })
+    //this.registerUserForm = this.formBuilder.group({
+    //  firstName: [null, Validators.required],
+    //  lastName: [null, Validators.required],
+    //  email: [null, Validators.compose([Validators.required, Validators.email])],
+    //  phoneNumber: [null, Validators.required],
+    //  password: [null, Validators.required]
+    //})
 
-    this.loginUserForm = this.formBuilder.group({
-      email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: [null, Validators.required]
-    })
+    //this.loginUserForm = this.formBuilder.group({
+    //  email: [null, Validators.compose([Validators.required, Validators.email])],
+    //  password: [null, Validators.required]
+    //})
   }
 
-  scroll(id) {
-    let el = document.getElementById(id);
-    el.scrollIntoView();
-  }
+  //scroll(id) {
+  //  let el = document.getElementById(id);
+  //  el.scrollIntoView();
+  //}
 
 
   //register() {

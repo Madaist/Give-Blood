@@ -62,7 +62,7 @@ namespace Give_Blood.Services.UserService
             }
             userDTO.NrOfPeopleHelped = nrOfPeopleHelped;
             userDTO.NrOfDonations = nrOfDonations;
-            userDTO.DonatedBlood = nrOfDonations * 450 / 1000;
+            userDTO.DonatedBlood = nrOfDonations * 450 / 1000.0;
 
             return userDTO;
         }
@@ -71,9 +71,9 @@ namespace Give_Blood.Services.UserService
         {
             ApplicationUser user = _userRepository.FindById(userId);
             _badgeService.AssignBadges(user);
-            if (user.NrOfPoints >=0 && user.NrOfPoints <= 35) user.LeagueId ="1";
-            if (user.NrOfPoints >35 && user.NrOfPoints <= 70) user.LeagueId = "2";
-            if (user.NrOfPoints >70  && user.NrOfPoints <=120) user.LeagueId = "3";
+            if (user.NrOfPoints >= 0 && user.NrOfPoints <= 35) user.LeagueId = "1";
+            if (user.NrOfPoints > 35 && user.NrOfPoints <= 70) user.LeagueId = "2";
+            if (user.NrOfPoints > 70 && user.NrOfPoints <= 120) user.LeagueId = "3";
             if (user.NrOfPoints > 120 && user.NrOfPoints <= 160) user.LeagueId = "4";
             if (user.NrOfPoints > 160 && user.NrOfPoints <= 200) user.LeagueId = "5";
             if (user.NrOfPoints > 200 && user.NrOfPoints <= 250) user.LeagueId = "6";

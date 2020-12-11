@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Give_Blood.Services.BadgeService
+﻿namespace Give_Blood.Services.BadgeService
 {
     public class BadgeTypes
     {
