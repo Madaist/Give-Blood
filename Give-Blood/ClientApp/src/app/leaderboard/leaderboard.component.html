@@ -22,41 +22,19 @@
                 </th>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr  *ngFor="let user of users;">
                     <td>
-                      username1
+                      {{user.lastName}} {{user.firstName}}
                     </td>
                     <td>
-                      Gold
+                      <img src={{user.league.icon}}/>
                     </td>
                     <td>
-                      80
+                      {{user.numberOfPoints}}
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      username2
-                    </td>
-                    <td>
-                      Sapphire
-                    </td>
-                    <td>
-                      125
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td>
-                      username3
-                    </td>
-                    <td>
-                      Diamond
-                    </td>
-                    <td>
-                      5000
-                    </td>
-
-                  </tr>
+                  
+                
 
                 </tbody>
               </table>
@@ -65,3 +43,10 @@
         </div>
       </div>
     </div>
+    
+  </div>
+  <h1 *ngIf=" users.length == 1" >You have no competitors in your league</h1>
+
+    
+ 
+  </div>

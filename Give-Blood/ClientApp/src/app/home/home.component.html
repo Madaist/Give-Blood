@@ -1,46 +1,71 @@
-<app-nav-menu></app-nav-menu>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="https://i.ibb.co/59XGqvp/photo1.jpg" alt="First slide" />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>About 1 in 7 people entering a hospital needs blood.</h5>
+<body style="background-color:white">
+  <app-nav-menu></app-nav-menu>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="z-index:3;">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="https://i.ibb.co/59XGqvp/photo1.jpg" alt="First slide" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>About 1 in 7 people entering a hospital needs blood.</h5>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://i.ibb.co/xX53F3z/blood-donation.jpg" alt="Second slide" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>One pint of blood can save up to three lives.</h5>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://i.ibb.co/bbCb5J9/blood-donation-poster.jpg" alt="Third slide" />
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://i.ibb.co/RbDQwCz/image-axd.jpg" alt="Fourth slide" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>There is no substitute for human blood.</h5>
+        </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://i.ibb.co/xX53F3z/blood-donation.jpg" alt="Second slide" />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>One pint of blood can save up to three lives.</h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://i.ibb.co/bbCb5J9/blood-donation-poster.jpg" alt="Third slide" />
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://i.ibb.co/RbDQwCz/image-axd.jpg" alt="Fourth slide" />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>There is no substitute for human blood.</h5>
-      </div>
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 
 
-<div id="story">
+  <!-- <div id="story">
+     <h5>
+       You don’t have to have a medical degree to save a life. Just a fair degree of humanity.
+     </h5>
+   </div>-->
+  <!--<h5>
+    Do you think you don’t have much to offer? You have the most precious resource of all: the ability to donate blood.
+  </h5>
+
+  <br />
+  <h4>Someone needs blood every two seconds.</h4>
+  <h4>Choose to be a hero.</h4>
+  <h4>Donate blood.</h4>-->
+  <!--</div>-->
+  <!--<div *ngFor="let user of users;">
+    <p>{{user.lastName}}</p>
+
+
+
+  </div>-->
+
+<div id="story" *ngIf="users == undefined || users.length == 0">
   <h5>
     You don’t have to have a medical degree to save a life. Just a fair degree of humanity.
   </h5>
@@ -54,14 +79,48 @@
   <h4>Donate blood.</h4>
 </div>
 
+  <table class="styled-table" style=" z-index:2;position:absolute;top:150px;right:150px; min-width:20%;min-height:20%; " *ngIf=" users.length != 0">
+
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>League</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="active-row" *ngFor="let user of users;">
+        <td>{{user.lastName}} {{user.firstName}}</td>
+        <td><img src={{user.league.icon}} matTooltip={{user.league.name}}{{user.numberOfPoints}} [matTooltipPosition]="'above'" /></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <img *ngIf=" users.length != 0" src="https://i.ibb.co/60gZz32/ezgif-com-gif-maker-3.gif" style=" z-index:1;max-width: 25%; max-height: 25%; position: absolute; top: 120px; right: 390px;" />
+  <!--<img src="https://i.ibb.co/VpvGHKC/ezgif-com-gif-maker-1.gif " style="max-width: 30%; max-height: 40%; position:absolute;top:370px;right:230px;" />-->
+  <a *ngIf=" users.length != 0" [routerLink]='["/home/leaderboard"]' [state]='{ local: true }' style="position: absolute; top: 480px; right: 190px; font-size:14px;color:red;"><b>Click to see the leaderboard</b></a>
+  "<!--<p style="position: absolute; top: 520px; right: 20px; font-size:18px;color:black"><b>TOP three DONERS</b></p>-->
+  <img *ngIf=" users.length != 0" src="https://i.ibb.co/MRSrV7V/giphy-4.gif" style=" z-index:4;position: absolute; top: 420px; right: 15px;max-width: 30%; max-height: 30%;" />
+
+
+</body>
+
+
+
+
+<!--<img style=" " src="https://i.ibb.co/8zBFQfJ/ezgif-com-gif-maker-2.gif" />-->
+<!--<tr *ngFor="let user of users;">
+   <td style=" border-left: solid black 1px; border-top: solid black 1px;"><img src={{user.league.icon}} style="width:50%; height:auto" /></td>
+   <td style="font-weight: 400;font-size: larger; border-left: solid black 1px; border-top: solid black 1px;">{{user.lastName}}</td>
+   <td style="font-weight: 400;font-size: larger; border-left: solid black 1px; border-top: solid black 1px;">{{user.firstName}}</td>
+
+ </tr>-->
 <!--<button type="button" class="btn btn-danger btn-lg" id="sign-in-button" (click)="scroll('login-div')">
   Sign in
 </button>
 <button type="button" class="btn btn-danger btn-lg" id="sign-up-button" (click)="scroll('register-div')">
   Sign up
 </button>-->
-
-
 <!-- ***************************** REGISTER FORM *************************************** -->
 <!--<div class="card bg-light" id="register-div">
   <article class="card-body mx-auto" style="max-width: 50vw">
@@ -140,15 +199,14 @@
         Have an account?
         <a (click)="scroll('login-div')"><span id="log-in-a">Log In</span></a>
       </p>-->
-      <!-- <p class="text-center" style="color: red">
-        Do you want to register as a hospital?
-        <a (click)="becomePartner()" style="color: red; font-weight: bolder"><span id="become-partner">Become a
-            partner</span></a>
-      </p> -->
-    <!--</form>
+<!-- <p class="text-center" style="color: red">
+  Do you want to register as a hospital?
+  <a (click)="becomePartner()" style="color: red; font-weight: bolder"><span id="become-partner">Become a
+      partner</span></a>
+</p> -->
+<!--</form>
   </article>
 </div>-->
-
 <!-- ****************************** LOGIN FORM **************************************8-->
 <!--<div class="card bg-light" id="login-div">
   <article class="card-body mx-auto" style="max-width: 55vw">

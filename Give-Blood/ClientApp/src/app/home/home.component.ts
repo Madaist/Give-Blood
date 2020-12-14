@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/cor
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import Swal from 'sweetalert2';
+import { UserDTO } from '../models/user/userDTO';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,10 @@ export class HomeComponent implements OnInit{
   registerUserForm: FormGroup;
   loginUserForm: FormGroup;
   success: boolean;
+
+  public users: Array<UserDTO> = new Array<UserDTO>();
+
+  
 
   constructor(public formBuilder: FormBuilder, private api: ApiService) {
   }
@@ -32,6 +37,13 @@ export class HomeComponent implements OnInit{
       email: [null, Validators.compose([Validators.required, Validators.email])],
       password: [null, Validators.required]
     })
+
+    this.api['getUsers']().subscribe((data: Array<UserDTO>) => {
+      this.users = data;
+      console.log(this.users);
+    })
+
+    console.log(this.users);
   }
 
   scroll(id) {
