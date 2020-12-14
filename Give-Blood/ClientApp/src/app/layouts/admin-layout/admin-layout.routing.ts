@@ -6,6 +6,7 @@ import { MyDonationsComponent } from '../../my-donations/my-donations.component'
 import { LeaderboardComponent } from '../../leaderboard/leaderboard.component';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { AuthorizeGuard } from '../../../api-authorization/authorize.guard';
+import { QrScannerComponent } from '../../qr-scanner/qr-scanner.component';
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -15,5 +16,6 @@ export const AdminLayoutRoutes: Routes = [
         { path: 'user-profile', component: UserProfileComponent },
         { path: 'my-donations', component: MyDonationsComponent },
         { path: 'leaderboard', component: LeaderboardComponent },
+      { path: 'scan-donation', component: QrScannerComponent },
     ]}
 ];

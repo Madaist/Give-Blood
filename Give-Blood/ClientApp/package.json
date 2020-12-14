@@ -26,6 +26,7 @@
     "@fortawesome/angular-fontawesome": "^0.8.0",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
+    "@zxing/ngx-scanner": "^3.0.0",
     "angular-bootstrap-md": "^10.0.1",
     "angular-font-awesome": "^3.1.2",
     "animate.css": "^4.1.1",
