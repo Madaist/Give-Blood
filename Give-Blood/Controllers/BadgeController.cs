@@ -1,5 +1,4 @@
 ﻿using Give_Blood.DTOs;
-using Give_Blood.Models;
 using Give_Blood.Services.BadgeService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

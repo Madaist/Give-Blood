@@ -11,6 +11,8 @@ namespace Give_Blood.Models
         [ForeignKey("DonationInfo")]
         public string Type { get; set; }
 
+        public string QrCode { get; set; }
+
         public DateTime Date { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual DonationInfo DonationInfo { get; set;}

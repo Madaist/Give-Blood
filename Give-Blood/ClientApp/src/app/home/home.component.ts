@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
-import Swal from 'sweetalert2';
 import { UserDTO } from '../models/user/userDTO';
 
 @Component({
@@ -18,18 +17,14 @@ export class HomeComponent implements OnInit{
 
   public users: Array<UserDTO> = new Array<UserDTO>();
 
-  
-
   constructor(public formBuilder: FormBuilder, private api: ApiService) {
   }
 
   ngOnInit(): void {
-    this.api['getUsers']().subscribe((data: Array<UserDTO>) => {
+    this.api['getTopThree']().subscribe((data: Array<UserDTO>) => {
       this.users = data;
       console.log(this.users);
     })
-
-    console.log(this.users);
 
     //this.registerUserForm = this.formBuilder.group({
     //  firstName: [null, Validators.required],

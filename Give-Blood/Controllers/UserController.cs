@@ -2,7 +2,6 @@
 using Give_Blood.Services.UserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Security.Claims;
 
 namespace Give_Blood.Controllers
@@ -25,23 +24,6 @@ namespace Give_Blood.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
             return _userService.GetUserInfo(userId);
         }
-
-        [HttpGet("GetAll")]
-        [AllowAnonymous]
-
-        public ICollection<UserDTO> GetFirst3ForLeaderboard()
-        {
-
-            return _userService.GetLeaderboardUsers();
-        }
-
-        [HttpGet("GetLeagueUsers")]
-        public ICollection<UserDTO> GetLogedUsersTop()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
-            return _userService.GetLeaderboardLeagueUsers(userId);
-        }
-
 
     }
 }
