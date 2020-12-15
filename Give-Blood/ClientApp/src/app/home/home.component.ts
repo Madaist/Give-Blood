@@ -24,20 +24,6 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(): void {
-
-    this.registerUserForm = this.formBuilder.group({
-      firstName: [null, Validators.required],
-      lastName: [null, Validators.required],
-      email: [null, Validators.compose([Validators.required, Validators.email])],
-      phoneNumber: [null, Validators.required],
-      password: [null, Validators.required]
-    })
-
-    this.loginUserForm = this.formBuilder.group({
-      email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: [null, Validators.required]
-    })
-
     this.api['getUsers']().subscribe((data: Array<UserDTO>) => {
       this.users = data;
       console.log(this.users);
@@ -45,6 +31,18 @@ export class HomeComponent implements OnInit{
 
     console.log(this.users);
 
+    //this.registerUserForm = this.formBuilder.group({
+    //  firstName: [null, Validators.required],
+    //  lastName: [null, Validators.required],
+    //  email: [null, Validators.compose([Validators.required, Validators.email])],
+    //  phoneNumber: [null, Validators.required],
+    //  password: [null, Validators.required]
+    //})
+
+    //this.loginUserForm = this.formBuilder.group({
+    //  email: [null, Validators.compose([Validators.required, Validators.email])],
+    //  password: [null, Validators.required]
+    //})
   }
 
   //scroll(id) {
