@@ -11,30 +11,22 @@
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
-                <th>
-                  Username
-                </th>
-                <th>
-                  League
-                </th>
-                <th>
-                  Points
-                </th>
+                <th> Username </th>
+                <th> League </th>
+                <th> Points </th>
                 </thead>
                 <tbody>
-                  <tr  *ngFor="let user of users;">
+                  <tr *ngFor="let user of users;">
                     <td>
                       {{user.lastName}} {{user.firstName}}
                     </td>
                     <td>
-                      <img src={{user.league.icon}}/>
+                      <img src={{user.league.icon}} matTooltip='{{user.league.name}} League' [matTooltipPosition]="'above'" />
                     </td>
                     <td>
                       {{user.numberOfPoints}}
                     </td>
                   </tr>
-                  
-                
 
                 </tbody>
               </table>
@@ -43,10 +35,10 @@
         </div>
       </div>
     </div>
-    
-  </div>
-  <h1 *ngIf=" users.length == 1" >You have no competitors in your league</h1>
 
-    
- 
   </div>
+  <h3 *ngIf=" users.length == 1" style="text-align:center">You have no competitors in your league</h3>
+
+
+
+</div>
