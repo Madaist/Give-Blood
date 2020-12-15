@@ -18,6 +18,14 @@ export class ApiService {
 
   getUser()  {
     return this.http.get(this.baseUrl + '/User', { headers: this.header });
+
+  }
+
+  getUsers() {
+     return this.http.get(this.baseUrl + '/User/GetAll', { headers: this.header });
+  }
+  getLeagueUsers() {
+    return this.http.get(this.baseUrl + '/User/GetLeagueUsers', { headers: this.header });
   }
   getUnassignedBagdes() {
     return this.http.get(this.baseUrl + '/Badge/GetUnassigned', { headers: this.header });

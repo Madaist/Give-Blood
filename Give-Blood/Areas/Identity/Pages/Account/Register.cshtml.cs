@@ -43,6 +43,7 @@ namespace Give_Blood.Areas.Identity.Pages.Account
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        public object Sysdate { get; private set; }
 
         public class InputModel
         {
@@ -101,7 +102,7 @@ namespace Give_Blood.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, EmailConfirmed = true, LeagueId = "1", BloodType=Input.BloodType, Weight=Input.Weight, Address=Input.Address, NrOfPoints = 0};
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, EmailConfirmed = true, LeagueId = "1", BloodType = Input.BloodType, Weight = Input.Weight, Address = Input.Address, NrOfPoints = 0, RegisterDate = DateTime.Now };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

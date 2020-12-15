@@ -1,12 +1,14 @@
 ﻿using Give_Blood.Data;
 using Give_Blood.Models;
 using Give_Blood.Repositories.GenericRepository;
+using System;
 using System.Linq;
+using System.Security.Claims;
 
 namespace Give_Blood.Repositories.UserRepository
 {
 
-    public class UserRepository : GenericRepository<ApplicationUser>, IUserRepository
+    public  class UserRepository : GenericRepository<ApplicationUser>, IUserRepository
     {
         public UserRepository(ApplicationDbContext context) : base(context)
         {
@@ -17,6 +19,9 @@ namespace Give_Blood.Repositories.UserRepository
         {
             return _table.Where(x => x.UserName == username && x.PasswordHash == password).FirstOrDefault();
         }
+       
+
+
     }
 
 }

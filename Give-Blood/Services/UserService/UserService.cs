@@ -5,6 +5,7 @@ using Give_Blood.Repositories.DonationRepository;
 using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Give_Blood.Services.UserService
@@ -16,6 +17,8 @@ namespace Give_Blood.Services.UserService
         private readonly ILeagueRepository _leagueRepository;
         private readonly IDonationRepository _donationRepository;
         private readonly IDonationInfoRepository _donationInfoRepository;
+
+        public object Conssole { get; private set; }
 
         public UserService(IUserRepository userRepository, ILeagueRepository leagueRepository, IBadgeService badgeService, IDonationRepository donationRepository, IDonationInfoRepository donationInfoRepository)
         {
@@ -84,6 +87,56 @@ namespace Give_Blood.Services.UserService
             _userRepository.Update(user);
 
         }
+
+
+        public ICollection<UserDTO> GetLeaderboardUsers()
+        { 
+            ICollection<UserDTO> topUsersDTO = new List<UserDTO>();
+           // int i = 0;
+              var topUsers = _userRepository.GetAll().OrderByDescending(x => x.NrOfPoints);
+            if (topUsers.Count() >= 3)
+            {
+                foreach (ApplicationUser user in topUsers.Take(3))
+                { 
+                    topUsersDTO.Add(GetUserInfo(user.Id));
+                  
+                }
+            }
+            else
+            {
+                foreach (ApplicationUser user in topUsers)
+                { 
+                    topUsersDTO.Add(GetUserInfo(user.Id));
+                   
+                }
+
+            }
+
+            
+            return topUsersDTO;
+        }
+        public ICollection<UserDTO> GetLeaderboardLeagueUsers(string Id)
+        {
+            var logeduser = _userRepository.FindById(Id);
+            League league = _leagueRepository.FindById(logeduser.LeagueId);
+
+            ICollection<UserDTO> topLogedUsersDTO = new List<UserDTO>();
+           
+            var topLeagueUsers = _userRepository.GetAll().Where(x=>x.LeagueId==league.Id).OrderByDescending(x => x.NrOfPoints);
+            
+                foreach (ApplicationUser user in topLeagueUsers)
+                {
+                    topLogedUsersDTO.Add(GetUserInfo(user.Id));
+
+                }
+
+            
+            return topLogedUsersDTO;
+
+
+
+        }
+
 
     }
 }

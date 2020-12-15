@@ -4,14 +4,16 @@ using Give_Blood.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Give_Blood.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201214125303_UserLoginDate")]
+    partial class UserLoginDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,6 +61,9 @@ namespace Give_Blood.Data.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<DateTime>("LoginDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -78,9 +83,6 @@ namespace Give_Blood.Data.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("RegisterDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -121,9 +123,6 @@ namespace Give_Blood.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NrOfPoints")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Badges");
@@ -133,50 +132,43 @@ namespace Give_Blood.Data.Migrations
                         {
                             Id = "1",
                             Icon = "https://i.ibb.co/sR1DLrn/first-donation.png",
-                            Name = "FIRST_DONATION",
-                            NrOfPoints = 20
+                            Name = "FIRST_DONATION"
                         },
                         new
                         {
                             Id = "2",
                             Icon = "https://i.ibb.co/n0g1vd6/donation-long-time.png",
-                            Name = "DONATION_AFTER_LONG_TIME",
-                            NrOfPoints = 5
+                            Name = "DONATION_AFTER_LONG_TIME"
                         },
                         new
                         {
                             Id = "3",
                             Icon = "https://i.ibb.co/CzCdhfC/three-months.png",
-                            Name = "DONATION_AFTER_3_MONTHS",
-                            NrOfPoints = 40
+                            Name = "DONATION_AFTER_3_MONTHS"
                         },
                         new
                         {
                             Id = "4",
                             Icon = "https://i.ibb.co/qWNvzRx/holiday-donation1.png",
-                            Name = "HOLIDAY_DONATION",
-                            NrOfPoints = 50
+                            Name = "HOLIDAY_DONATION"
                         },
                         new
                         {
                             Id = "5",
                             Icon = "https://i.ibb.co/QkPq2R9/covid-donation.png",
-                            Name = "COVID_PLASMA_DONATION",
-                            NrOfPoints = 30
+                            Name = "COVID_PLASMA_DONATION"
                         },
                         new
                         {
                             Id = "6",
                             Icon = "https://i.ibb.co/5hrRy80/special-badge.png",
-                            Name = "FIRST_SPECIAL_DONATION",
-                            NrOfPoints = 35
+                            Name = "FIRST_SPECIAL_DONATION"
                         },
                         new
                         {
                             Id = "7",
                             Icon = "https://i.ibb.co/SJW0h2j/three-nine.png",
-                            Name = "3_DONATIONS_IN_9_MONTHS",
-                            NrOfPoints = 60
+                            Name = "3_DONATIONS_IN_9_MONTHS"
                         });
                 });
 

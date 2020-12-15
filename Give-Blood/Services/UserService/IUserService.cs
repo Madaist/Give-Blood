@@ -10,6 +10,7 @@ namespace Give_Blood.Services.UserService
     public interface IUserService
     {
         public UserDTO GetUserInfo(string userId);
-
+        public ICollection<UserDTO> GetLeaderboardUsers();
+        public ICollection<UserDTO> GetLeaderboardLeagueUsers(string userId);
     }
 }

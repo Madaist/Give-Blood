@@ -16,6 +16,8 @@ import { ComponentsModule } from './components/components.module';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     ComponentsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
