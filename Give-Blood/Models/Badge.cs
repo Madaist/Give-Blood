@@ -10,6 +10,7 @@ namespace Give_Blood.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public string Icon { get; set; }
+        public int NrOfPoints { get; set; }
 
         public virtual ICollection<UserBadges> UserBadges { get; set; }
     }

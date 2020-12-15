@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { UserDTO } from '../models/user/userDTO';
+import { BadgeDTO } from '../models/badge/badgeDTO';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,18 +11,21 @@ import { UserDTO } from '../models/user/userDTO';
 export class DashboardComponent implements OnInit {
 
   public user: UserDTO = new UserDTO();
+  public unassignedBadges: Array<BadgeDTO> = new Array<BadgeDTO>();
 
   constructor(private api: ApiService) {
   }
 
    ngOnInit() {
-    this.api['getUser']().subscribe((data: UserDTO) => {
+    this.api.getUser().subscribe((data: UserDTO) => {
       this.user = data;
       console.log(this.user);
     })
 
-    console.log(this.user);
-
+     this.api.getUnassignedBagdes().subscribe((data: Array<BadgeDTO>) => {
+       this.unassignedBadges = data;
+       console.log(this.unassignedBadges);
+     })
 
     //const dataDailySalesChart: any = {
     //  labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],

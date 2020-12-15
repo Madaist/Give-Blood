@@ -27,4 +27,7 @@ export class ApiService {
   getLeagueUsers() {
     return this.http.get(this.baseUrl + '/User/GetLeagueUsers', { headers: this.header });
   }
+  getUnassignedBagdes() {
+    return this.http.get(this.baseUrl + '/Badge/GetUnassigned', { headers: this.header });
+  }
 }

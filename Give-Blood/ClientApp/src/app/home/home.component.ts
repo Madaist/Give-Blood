@@ -12,8 +12,8 @@ import { UserDTO } from '../models/user/userDTO';
 export class HomeComponent implements OnInit{
   @Output() public sidenavToggle = new EventEmitter();
 
-  registerUserForm: FormGroup;
-  loginUserForm: FormGroup;
+  //registerUserForm: FormGroup;
+  //loginUserForm: FormGroup;
   success: boolean;
 
   public users: Array<UserDTO> = new Array<UserDTO>();
@@ -44,12 +44,13 @@ export class HomeComponent implements OnInit{
     })
 
     console.log(this.users);
+
   }
 
-  scroll(id) {
-    let el = document.getElementById(id);
-    el.scrollIntoView();
-  }
+  //scroll(id) {
+  //  let el = document.getElementById(id);
+  //  el.scrollIntoView();
+  //}
 
 
   //register() {

@@ -19,5 +19,8 @@ namespace Give_Blood.Services.BadgeService
         public ICollection<string> GetAssignedBadges(ApplicationUser user);
         public ICollection<BadgeDTO> GetAssignedBadgesDTO(ApplicationUser user);
 
+        public ICollection<Badge> GetAll();
+        public ICollection<BadgeDTO> GetUnassignedBadgesDTO(string userId);
+
     }
 }
