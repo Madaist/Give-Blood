@@ -163,7 +163,7 @@ a:hover span{
 #leaderboard-table {
   z-index: 2;
   position: absolute;
-  top: 150px;
+  top: 17vh;
   right: 150px;
   min-width: 20%;
   min-height: 20%;
@@ -174,14 +174,14 @@ a:hover span{
   max-width: 25%;
   max-height: 25%;
   position: absolute;
-  top: 120px;
-  right: 390px;
+  top: 17vh;
+  right: 30vw;
 }
 
 #leaderboard-redirect {
   position: absolute;
-  top: 480px;
-  right: 190px;
+  top: 72vh;
+  right: 15vw;
   font-size: 14px;
   color: red;
 }
@@ -189,8 +189,8 @@ a:hover span{
 #trophey-gif {
   z-index: 4;
   position: absolute;
-  top: 420px;
-  right: 15px;
-  max-width: 30%;
-  max-height: 30%;
+  top: 60vh;
+  right: 4vw;
+  max-width: 20%;
+  max-height: 20%;
 }
