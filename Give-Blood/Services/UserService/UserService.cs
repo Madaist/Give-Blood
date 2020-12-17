@@ -67,6 +67,11 @@ namespace Give_Blood.Services.UserService
             return userDTO;
         }
 
+       public void UpdateUserInfo(ApplicationUser user)
+        {
+            _userRepository.Update(user);
+        }
+ 
         public void UpdateLeagueandBadges(string userId)
         {
             ApplicationUser user = _userRepository.FindById(userId);

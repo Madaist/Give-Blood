@@ -1,4 +1,5 @@
 ﻿using Give_Blood.DTOs;
+using Give_Blood.Models;
 using Give_Blood.Services.UserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,11 @@ namespace Give_Blood.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
             return _userService.GetUserInfo(userId);
         }
-       
+
+        [HttpPut]
+        public void UpdateInfo(ApplicationUser user)
+        {
+            _userService.UpdateUserInfo(user);
+        }
     }
 }
