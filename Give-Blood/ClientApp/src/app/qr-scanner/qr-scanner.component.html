@@ -6,7 +6,7 @@
           <span class="kt-portlet__head-icon kt-hide">
             <i class="la la-gear"></i>
           </span>
-          <h3 class="kt-portlet__head-title">
+          <h3 class="kt-portlet__head-title" style="color: red;">
             Zoom in the QR code
           </h3>
         </div>
@@ -23,14 +23,16 @@
 
   <div class="col-12 col-lg-6">
     <div class="kt-portlet kt-callout kt-callout--info kt-callout--diagonal-bg scannedInfo">
+      <!-- aici e corpul unde e scrisul din dreapta-->
       <div class="kt-portlet__body">
         <div class="kt-callout__body">
           <div class="kt-callout__content">
             <!-- <h3 class="kt-callout__title">Información sobre el folio</h3>-->
-            <h3 class="kt-callout__desc">
-              {{information}}
-            </h3>
-
+     
+            <br />
+            <div>
+              <img src="https://media.giphy.com/media/jQoED4lwbd2gCGNqBY/giphy.gif" style="width: 35%;position: absolute;margin: auto;top:0;left: 0;right: 0;bottom: 0;padding: 10px;" />
+            </div>
             <div class="alert alert-primary fade show" role="alert"
                  *ngFor="let item of transports; let i = index">
               <div class="alert-icon"><i class="flaticon-truck"></i></div>
@@ -48,4 +50,38 @@
     </div>
   </div>
 
+  <style>
+/*    * {
+      box-sizing: border-box;
+    }*/
+
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 20px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+  <div>
+
+  </div>
+  <div class="row">
+
+    <div class="column">
+      <img src="https://i.ibb.co/6P3n2GT/pooza1.png" alt="quote1" style="width:100%">
+    </div>
+    <div class="column">
+      <img src="https://i.ibb.co/mtJTtnJ/pooza3.png" alt="quote2" style="width:100%">
+    </div>
+    <div class="column">
+      <img src="https://i.ibb.co/SnrKggY/pooza2.png" alt="quote3" style="width:100%">
+    </div>
+  </div>
 </div>
+

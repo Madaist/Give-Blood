@@ -7,8 +7,10 @@ namespace Give_Blood.Repositories.LeagueRepository
     public class LeagueRepository : GenericRepository<League>, ILeagueRepository
     {
         public LeagueRepository(ApplicationDbContext context) : base(context)
-        {
+        {   
 
         }
+
+        
     }
 }

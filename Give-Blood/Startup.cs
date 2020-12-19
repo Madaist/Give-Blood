@@ -7,6 +7,8 @@ using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.UserBadgesRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
+using Give_Blood.Services.DonationService;
+using Give_Blood.Services.LeaderboardService;
 using Give_Blood.Services.UserService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -67,6 +69,8 @@ namespace Give_Blood
 
             services.AddTransient<IBadgeService, BadgeService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IDonationService, DonationService>();
+            services.AddTransient<ILeaderboardService, LeaderboardService>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -86,7 +90,7 @@ namespace Give_Blood
                 options.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
-                
+
             });
 
         }

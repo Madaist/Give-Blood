@@ -7,3 +7,7 @@
   border-style: solid;
   border-color: #5d78ff;
 }
+
+.swal-wide {
+  width: 10vw !important;
+}

@@ -43,6 +43,7 @@ namespace Give_Blood.Areas.Identity.Pages.Account
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        public object Sysdate { get; private set; }
 
         public class InputModel
         {

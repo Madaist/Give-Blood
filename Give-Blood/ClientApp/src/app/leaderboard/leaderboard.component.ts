@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../api.service';
+import { UserDTO } from '../models/user/userDTO';
+
 
 @Component({
   selector: 'app-leaderboard',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leaderboard.component.css']
 })
 export class LeaderboardComponent implements OnInit {
+  
+  public users: Array<UserDTO> = new Array<UserDTO>();
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void {
 
+    this.api['getEntireTop']().subscribe((data: Array<UserDTO>) => {
+      this.users = data;
+      console.log(this.users);
+    })
 }
+}
+
+

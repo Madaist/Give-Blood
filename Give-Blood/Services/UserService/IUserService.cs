@@ -13,5 +13,6 @@ namespace Give_Blood.Services.UserService
 
         public void UpdateUserInfo(UserDTO userDTO);
 
+        public void UpdateLeagueandBadges(string userId);
     }
 }

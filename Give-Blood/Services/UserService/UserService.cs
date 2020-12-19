@@ -5,6 +5,7 @@ using Give_Blood.Repositories.DonationRepository;
 using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Give_Blood.Services.UserService
@@ -97,8 +98,6 @@ namespace Give_Blood.Services.UserService
             if (user.NrOfPoints > 400) user.LeagueId = "9";
 
             _userRepository.Update(user);
-
         }
-
     }
 }
