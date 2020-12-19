@@ -28,6 +28,7 @@ export class User {
   NumberOfPoints: number;
   LeagueId: string;
   Description: string;
+  Age: number;
 
   League: League;
   Donations: Donation[];

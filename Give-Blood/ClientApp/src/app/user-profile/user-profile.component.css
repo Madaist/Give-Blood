@@ -1,0 +1,20 @@
+#edit-button:hover {
+  background-color: #eee;
+  color: #f44336;
+}
+
+#edit-button {
+  background-color: #f44336;
+  color: #fff;
+  position:relative;
+  left:32vw;
+}
+
+.red-snackbar{
+    background-color: red !important;
+    color: white;
+}
+].mat-snack-bar-container {
+  background: red !important;
+  color: white !important;
+}

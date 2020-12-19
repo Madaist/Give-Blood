@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { QrScannerComponent } from '../../qr-scanner/qr-scanner.component';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -28,8 +29,8 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    ZXingScannerModule
-
+    ZXingScannerModule,
+    MatSnackBarModule
   ],
   declarations: [
     DashboardComponent,

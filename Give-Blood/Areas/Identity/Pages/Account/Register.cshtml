@@ -65,8 +65,16 @@
             <br />
 
             <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
+                <i class="fas fa-child icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
+                <input asp-for="Input.Age" class="form-control" placeholder="Age" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
+            </div>
+            <span asp-validation-for="Input.Age" class="text-danger"></span>
+
+            <br />
+
+            <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
                 <i class="fa fa-tint icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
-                <input asp-for="Input.BloodType" list="bloodtypes"  class="form-control" placeholder="Blood Type" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
+                <input asp-for="Input.BloodType" list="bloodtypes" class="form-control" placeholder="Blood Type" style="width: 100%;padding: 10px;outline: none;text-align: center;" />
                 <datalist id="bloodtypes">
                     <option value="A"></option>
                     <option value="B"></option>

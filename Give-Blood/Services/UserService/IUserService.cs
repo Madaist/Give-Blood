@@ -10,6 +10,9 @@ namespace Give_Blood.Services.UserService
     public interface IUserService
     {
         public UserDTO GetUserInfo(string userId);
+
+        public void UpdateUserInfo(UserDTO userDTO);
+
         public void UpdateLeagueandBadges(string userId);
     }
 }
