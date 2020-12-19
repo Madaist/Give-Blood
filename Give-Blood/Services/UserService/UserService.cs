@@ -33,6 +33,7 @@ namespace Give_Blood.Services.UserService
 
             UserDTO userDTO = new UserDTO
             {
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
@@ -41,7 +42,8 @@ namespace Give_Blood.Services.UserService
                 BloodType = user.BloodType,
                 Badges = _badgeService.GetAssignedBadgesDTO(user),
                 Donations = user.Donations,
-                NumberOfPoints = user.NrOfPoints
+                NumberOfPoints = user.NrOfPoints,
+                Age = user.Age
             };
 
             League league = _leagueRepository.FindById(user.LeagueId);
@@ -67,8 +69,16 @@ namespace Give_Blood.Services.UserService
             return userDTO;
         }
 
-       public void UpdateUserInfo(ApplicationUser user)
+       public void UpdateUserInfo(UserDTO userDTO)
         {
+            ApplicationUser user = _userRepository.FindById(userDTO.Id);
+            user.LastName = userDTO.LastName;
+            user.FirstName = userDTO.FirstName;
+            user.Address = userDTO.Address;
+            user.BloodType = userDTO.BloodType;
+            user.Weight = userDTO.Weight;
+            user.Age = userDTO.Age;
+            
             _userRepository.Update(user);
         }
  

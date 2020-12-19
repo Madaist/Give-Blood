@@ -27,9 +27,9 @@ namespace Give_Blood.Controllers
         }
 
         [HttpPut]
-        public void UpdateInfo(ApplicationUser user)
+        public void UpdateInfo(UserDTO userDTO)
         {
-            _userService.UpdateUserInfo(user);
+            _userService.UpdateUserInfo(userDTO);
         }
     }
 }

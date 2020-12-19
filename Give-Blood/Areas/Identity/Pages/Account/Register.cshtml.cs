@@ -79,6 +79,11 @@ namespace Give_Blood.Areas.Identity.Pages.Account
 
             [Required]
             [DataType(DataType.Text)]
+            [Display(Name = "Age")]
+            public int Age { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
             [Display(Name = "Blood Type")]
             public string BloodType { get; set; }
 
@@ -101,15 +106,27 @@ namespace Give_Blood.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, EmailConfirmed = true, LeagueId = "1", BloodType=Input.BloodType, Weight=Input.Weight, Address=Input.Address, NrOfPoints = 0};
+                var user = new ApplicationUser { 
+                    UserName = Input.Email, 
+                    Email = Input.Email, 
+                    FirstName = Input.FirstName, 
+                    LastName = Input.LastName, 
+                    EmailConfirmed = true, 
+                    LeagueId = "1", 
+                    BloodType=Input.BloodType, 
+                    Weight=Input.Weight, 
+                    Address=Input.Address, 
+                    NrOfPoints = 0, 
+                    Age = Input.Age
+                };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     //var callbackUrl = Url.Page(
                     //    "/Account/ConfirmEmail",
                     //    pageHandler: null,

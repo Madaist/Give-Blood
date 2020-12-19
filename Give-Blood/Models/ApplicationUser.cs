@@ -10,6 +10,7 @@ namespace Give_Blood.Models
         public string LastName { get; set; }
         public string BloodType { get; set; }
         public int? Weight { get; set; }
+        public int? Age { get; set; }
         public string LeagueId { get; set; }
         public string Address { get; set; }
         public int NrOfPoints { get; set; }

@@ -11,7 +11,7 @@ namespace Give_Blood.Services.UserService
     {
         public UserDTO GetUserInfo(string userId);
 
-        public void UpdateUserInfo(ApplicationUser user);
+        public void UpdateUserInfo(UserDTO userDTO);
 
     }
 }

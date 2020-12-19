@@ -7,5 +7,14 @@
   background-color: #f44336;
   color: #fff;
   position:relative;
-  left:70px;
+  left:32vw;
+}
+
+.red-snackbar{
+    background-color: red !important;
+    color: white;
+}
+].mat-snack-bar-container {
+  background: red !important;
+  color: white !important;
 }

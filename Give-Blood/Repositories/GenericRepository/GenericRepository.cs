@@ -50,6 +50,7 @@ namespace Give_Blood.Repositories.GenericRepository
         public void Update(T entity)
         {
             _table.Update(entity);
+            _context.SaveChanges();
         }
     }
 
