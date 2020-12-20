@@ -10,11 +10,15 @@
   left:32vw;
 }
 
-.red-snackbar{
-    background-color: red !important;
-    color: white;
+::ng-deep snack-bar-container.red-snackbar {
+  background-color: #f44336 !important;
+  color: white;
 }
-].mat-snack-bar-container {
-  background: red !important;
-  color: white !important;
+
+.red-snackbar .mat-simple-snackbar-action {
+  color: white;
+}
+
+#status{
+    font-weight: 500;
 }
