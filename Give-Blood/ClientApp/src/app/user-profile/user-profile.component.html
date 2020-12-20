@@ -11,9 +11,9 @@
             <form [formGroup]="updateUserForm">
               <div class="row">
                 <div class="col-md-5">
-                  <label>Category:</label>
+                  <label>Status:</label>
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Blood donor" disabled>
+                    <input matInput id="status" formControlName="status" value={{donorStatus}} [style.color]="donorStatus === 'Eligible for donation' ? 'green' : 'red'" disabled>
                   </mat-form-field>
                 </div>
                 <div class="col-md-7">
@@ -67,7 +67,7 @@
                 </div>
               </div>
               <div class="clearfix"></div>
-              <button class="btn btn-outline-light" id="edit-button" [disabled]="updateUserForm.invalid || updateUserForm.pristine" (click)="updateUser()">Edit profile</button>
+              <button class="btn btn-outline-light" id="edit-button" block="true" [disabled]="updateUserForm.invalid || updateUserForm.pristine" (click)="updateUser()">Edit profile</button>
             </form>
 
           </div>
@@ -87,7 +87,6 @@
             <p class="card-description">
               I am somebody's hero
             </p>
-            <!-- <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a> -->
           </div>
         </div>
       </div>

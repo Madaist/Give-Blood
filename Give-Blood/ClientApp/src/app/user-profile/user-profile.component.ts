@@ -14,13 +14,21 @@ export class UserProfileComponent implements OnInit {
 
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
   public user: UserDTO = new UserDTO();
+  public donorStatus: string;
   updateUserForm: FormGroup;
 
   constructor(public fb: FormBuilder, private api: ApiService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+
     this.api['getUser']().subscribe((data: UserDTO) => {
       this.user = data;
+      if (this.user.age >= 18 && this.user.age <= 65 && this.user.weight >= 50) {
+        this.donorStatus = 'Eligible for donation';
+      }
+      else {
+        this.donorStatus = 'Not eligible for donation';
+      }
       this.initializeForm(this.user);
       console.log(this.user);
     })
@@ -28,14 +36,15 @@ export class UserProfileComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 50000,
-      panelClass: ['red-snackbar', 'mat-danger']
+      duration: 1000,
+      panelClass: ['red-snackbar']
     });
   }
 
 
   initializeForm(user: UserDTO) {
     this.updateUserForm = this.fb.group({
+      status: [this.donorStatus],
       email: [user.email, Validators.required],
       address: [user.address, Validators.required],
       firstName: [user.firstName, Validators.required],
@@ -61,8 +70,13 @@ export class UserProfileComponent implements OnInit {
 
     this.api.updateUser(editedUser)
       .subscribe(() => {
-        this.change.emit('user');
         this.openSnackBar("Changes were saved", "Ok");
+        if (editedUser.age >= 18 && editedUser.age <= 65 && editedUser.weight >= 50) {
+          this.donorStatus = 'Eligible for donation';
+        }
+        else {
+          this.donorStatus = 'Not eligible for donation';
+        }
       },
         (error: Error) => {
           console.log('err', error);
