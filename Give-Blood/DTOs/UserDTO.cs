@@ -10,7 +10,7 @@ namespace Give_Blood.DTOs
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime? BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public string BloodType { get; set; }
         public int? Weight { get; set; }
         public int? Age { get; set; }

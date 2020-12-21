@@ -79,9 +79,9 @@ namespace Give_Blood.Areas.Identity.Pages.Account
             public int Weight { get; set; }
 
             [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Age")]
-            public int Age { get; set; }
+            [DataType(DataType.Date)]
+            [Display(Name = "BirthDate")]
+            public DateTime BirthDate { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
@@ -118,8 +118,9 @@ namespace Give_Blood.Areas.Identity.Pages.Account
                     Weight=Input.Weight, 
                     Address=Input.Address, 
                     NrOfPoints = 0, 
-                    Age = Input.Age
-                };
+                    BirthDate = Input.BirthDate,
+                    Age = (int)((DateTime.Now - Input.BirthDate).TotalDays / 365)
+            };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

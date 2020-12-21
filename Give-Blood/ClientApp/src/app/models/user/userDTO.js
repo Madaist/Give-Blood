@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDTO = void 0;
 var UserDTO = /** @class */ (function () {
-    function UserDTO(Id, Email, LastName, FirstName, Address, BloodType, Weight, Age) {
+    function UserDTO(Id, Email, LastName, FirstName, Address, BloodType, Weight, BirthDate) {
         this.id = Id;
         this.email = Email;
         this.firstName = FirstName;
@@ -10,7 +10,7 @@ var UserDTO = /** @class */ (function () {
         this.address = Address;
         this.bloodType = BloodType;
         this.weight = Weight;
-        this.age = Age;
+        this.birthDate = BirthDate;
     }
     return UserDTO;
 }());

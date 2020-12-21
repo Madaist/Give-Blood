@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import { UserDTO } from '../models/user/userDTO';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class UserProfileComponent implements OnInit {
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
   public user: UserDTO = new UserDTO();
   public donorStatus: string;
+  public birthDate: string;
   updateUserForm: FormGroup;
 
   constructor(public fb: FormBuilder, private api: ApiService, private snackBar: MatSnackBar) { }
@@ -23,6 +25,8 @@ export class UserProfileComponent implements OnInit {
 
     this.api['getUser']().subscribe((data: UserDTO) => {
       this.user = data;
+      this.birthDate = formatDate(new Date(this.user.birthDate), 'yyyy-MM-dd', 'en_US');
+
       if (this.user.age >= 18 && this.user.age <= 65 && this.user.weight >= 50) {
         this.donorStatus = 'Eligible for donation';
       }
@@ -51,6 +55,7 @@ export class UserProfileComponent implements OnInit {
       lastName: [user.lastName, Validators.required],
       weight: [user.weight, Validators.required],
       bloodType: [user.bloodType, Validators.required],
+      birthDate: [user.birthDate, Validators.required],
       age: [user.age, Validators.required]
     });
   }
@@ -65,12 +70,21 @@ export class UserProfileComponent implements OnInit {
       this.updateUserForm.value.address,
       this.updateUserForm.value.bloodType,
       this.updateUserForm.value.weight,
-      this.updateUserForm.value.age
+      this.updateUserForm.value.birthDate
     );
+
+    var diff = Math.abs(Date.now().valueOf() - new Date(editedUser.birthDate).getTime());
+    var day = 1000 * 60 * 60 * 24;
+    var days = Math.floor(diff / day);
+    var months = Math.floor(days / 31);
+    var years = Math.floor(months / 12);
 
     this.api.updateUser(editedUser)
       .subscribe(() => {
         this.openSnackBar("Changes were saved", "Ok");
+
+        editedUser.age = years;
+        this.user.age = years;
         if (editedUser.age >= 18 && editedUser.age <= 65 && editedUser.weight >= 50) {
           this.donorStatus = 'Eligible for donation';
         }
