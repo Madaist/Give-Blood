@@ -8,6 +8,7 @@
   color: #fff;
   position:relative;
   left:32vw;
+  top: -11vh;
 }
 
 ::ng-deep snack-bar-container.red-snackbar {

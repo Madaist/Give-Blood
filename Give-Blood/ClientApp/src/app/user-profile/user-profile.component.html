@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header card-header-danger">
             <h4 class="card-title">My Profile</h4>
-            
+
           </div>
           <div class="card-body" *ngIf="updateUserForm">
             <form [formGroup]="updateUserForm">
@@ -28,13 +28,13 @@
                 <div class="col-md-6">
                   <label>First Name:</label>
                   <mat-form-field class="example-full-width">
-                    <input matInput  type="text" value={{user.firstName}} formControlName="firstName">
+                    <input matInput type="text" value={{user.firstName}} formControlName="firstName">
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
                   <label>Last Name:</label>
                   <mat-form-field class="example-full-width">
-                    <input matInput  type="text" value={{user.lastName}} formControlName="lastName">
+                    <input matInput type="text" value={{user.lastName}} formControlName="lastName">
                   </mat-form-field>
                 </div>
               </div>
@@ -42,32 +42,41 @@
                 <div class="col-md-12">
                   <label>Address:</label>
                   <mat-form-field class="example-full-width">
-                    <input matInput  type="text" value={{user.address}} formControlName="address">
+                    <input matInput type="text" value={{user.address}} formControlName="address">
                   </mat-form-field>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <label>Weight:</label>
                   <mat-form-field class="example-full-width">
                     <input matInput type="number" value={{user.weight}} formControlName="weight">
                   </mat-form-field>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <label>Blood Type:</label>
                   <mat-form-field class="example-full-width">
                     <input matInput type="text" value={{user.bloodType}} formControlName="bloodType">
                   </mat-form-field>
                 </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label>BirthDate:</label>
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="date" value={{birthDate}} formControlName="birthDate">
+                  </mat-form-field>
+                </div>
                 <div class="col-md-4">
                   <label>Age:</label>
                   <mat-form-field class="example-full-width">
-                    <input matInput type="number" value={{user.age}} formControlName="age">
+                    <input matInput type="number" value={{user.age}} formControlName="age" readonly>
                   </mat-form-field>
                 </div>
-              </div>
-              <div class="clearfix"></div>
-              <button class="btn btn-outline-light" id="edit-button" block="true" [disabled]="updateUserForm.invalid || updateUserForm.pristine" (click)="updateUser()">Edit profile</button>
+                </div>
+                <div class="clearfix"></div>
+                <button class="btn btn-outline-light" id="edit-button" block="true" [disabled]="updateUserForm.invalid || updateUserForm.pristine" (click)="updateUser()">Edit profile</button>
             </form>
 
           </div>

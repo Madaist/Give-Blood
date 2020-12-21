@@ -15,7 +15,7 @@ namespace Give_Blood.Models
         public string LeagueId { get; set; }
         public string Address { get; set; }
         public int NrOfPoints { get; set; }
-        public DateTime RegisterDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         public virtual League League { get; set; }
         public virtual ICollection<UserBadges> UserBadges { get; set; }

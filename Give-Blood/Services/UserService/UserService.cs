@@ -5,6 +5,7 @@ using Give_Blood.Repositories.DonationRepository;
 using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -44,8 +45,9 @@ namespace Give_Blood.Services.UserService
                 Badges = _badgeService.GetAssignedBadgesDTO(user),
                 Donations = user.Donations,
                 NumberOfPoints = user.NrOfPoints,
-                Age = user.Age
-            };
+                BirthDate = user.BirthDate,
+                Age = (int)((DateTime.Now - user.BirthDate).TotalDays / 365)
+        };
 
             League league = _leagueRepository.FindById(user.LeagueId);
             LeagueDTO leagueDTO = new LeagueDTO { Name = league.Name, Icon = league.Icon };
@@ -78,8 +80,9 @@ namespace Give_Blood.Services.UserService
             user.Address = userDTO.Address;
             user.BloodType = userDTO.BloodType;
             user.Weight = userDTO.Weight;
-            user.Age = userDTO.Age;
-            
+            user.BirthDate = userDTO.BirthDate;
+            user.Age = (int)((DateTime.Now - userDTO.BirthDate).TotalDays / 365);
+
             _userRepository.Update(user);
         }
  
@@ -99,5 +102,6 @@ namespace Give_Blood.Services.UserService
 
             _userRepository.Update(user);
         }
+
     }
 }

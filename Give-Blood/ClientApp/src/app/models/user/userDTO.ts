@@ -22,7 +22,7 @@ export class UserDTO {
   Donations: Donation[];
   Badges: BadgeDTO[];
 
-  constructor(Id?: string, Email?: string, LastName?: string, FirstName?: string, Address?: string, BloodType?: string, Weight?: number, Age?: number) {
+  constructor(Id?: string, Email?: string, LastName?: string, FirstName?: string, Address?: string, BloodType?: string, Weight?: number, BirthDate?: Date) {
     this.id = Id;
     this.email = Email;
     this.firstName = FirstName;
@@ -30,7 +30,7 @@ export class UserDTO {
     this.address = Address;
     this.bloodType = BloodType;
     this.weight = Weight;
-    this.age = Age;
+    this.birthDate = BirthDate;
   }
 
 }
