@@ -38,4 +38,8 @@ export class ApiService {
   updateUser(user: UserDTO) {
     return this.http.put(this.baseUrl + '/User', user, { headers: this.header });
   }
+
+  getDonationsHostory() {
+    return this.http.get(this.baseUrl + '/Donation', { headers: this.header });
+  }
 }
