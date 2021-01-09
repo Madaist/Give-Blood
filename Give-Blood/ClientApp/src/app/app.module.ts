@@ -17,7 +17,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 @NgModule({
@@ -44,7 +44,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ModalModule.forRoot(),
     ComponentsModule,
     AngularFontAwesomeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    QRCodeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

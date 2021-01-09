@@ -12,7 +12,7 @@
               <table class="table">
                 <thead class=" text-primary">
                   <td>
-                    ID
+                    QR Code
                   </td>
                   <td>
                     Donation type
@@ -25,18 +25,19 @@
                   </td>
 
                 </thead>
-                  <tr *ngFor="let donation of donations_list;">
+                  <tr *ngFor="let donation of donations;">
 
                     <td>
-                      {{donation.id}}
+                      <qrcode [qrdata]="donation.qrCode" [width]="100" [errorCorrectionLevel]="'M'"></qrcode>
+                      <!--{{donation.qrCode}}-->
                     </td>
-                    <td>
+                    <td style="padding-top: 8vh">
                       {{donation.type}}
                     </td>
-                    <td>
+                    <td style="padding-top: 8vh; padding-left: 6vw">
                       450 ml
                     </td>
-                    <td>
+                    <td style="padding-top: 8vh">
                       {{donation.date}}
                     </td>
 

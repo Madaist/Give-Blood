@@ -125,10 +125,8 @@ namespace Give_Blood.Services.UserService
                 {
                     if(nearestPossibleDonationDate.Subtract(DateTime.Now).TotalDays <= 7)
                     {
-                        var message = "Poti dona din nou, incepand cu data de " 
-                                      + nearestPossibleDonationDate.Day + "." 
-                                      + (nearestPossibleDonationDate.Month < 10? '0' + nearestPossibleDonationDate.Month.ToString() : nearestPossibleDonationDate.Month.ToString())
-                                      + "."+ nearestPossibleDonationDate.Year;
+                        var message = "Poti dona din nou, incepand cu data de "
+                                      + nearestPossibleDonationDate.ToString("dd/M/yyyy");
                         return message;
                     }
                 }
@@ -136,7 +134,6 @@ namespace Give_Blood.Services.UserService
                 {
                     return "Au trecut deja 3 luni de la ultima donatie. Poti dona din nou!";
                 }
-
             }
             return null;
         } 

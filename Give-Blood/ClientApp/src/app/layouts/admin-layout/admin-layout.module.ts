@@ -18,6 +18,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { WeightModalComponent } from '../../user-profile/weight-modal/weight-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatTooltipModule,
     ZXingScannerModule,
     MatSnackBarModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    QRCodeModule
   ],
   declarations: [
     DashboardComponent,
