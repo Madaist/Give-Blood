@@ -1,9 +1,11 @@
-﻿using Give_Blood.Models;
+﻿using Give_Blood.DTOs;
+using Give_Blood.Models;
 using Give_Blood.Repositories.DonationInfoRepository;
 using Give_Blood.Repositories.DonationRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.UserService;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Give_Blood.Services.DonationService
@@ -78,6 +80,12 @@ namespace Give_Blood.Services.DonationService
             }
 
             return donationType;
+        }
+
+        public IEnumerable<Donation> GetDonationsHistory(string userId)
+        {
+            return _donationRepository.FindByUserId(userId); ;
+            
         }
     }
 }

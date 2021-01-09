@@ -1,5 +1,7 @@
-﻿using Give_Blood.Services.DonationService;
+﻿using Give_Blood.Models;
+using Give_Blood.Services.DonationService;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Security.Claims;
 
 namespace Give_Blood.Controllers
@@ -24,6 +26,12 @@ namespace Give_Blood.Controllers
                 return Ok();
             else
                 return BadRequest("Code already exists");
+        }
+        [HttpGet]
+        public IEnumerable<Donation> GetDonationsHistory()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return _donationService.GetDonationsHistory(userId);
         }
     }
 }

@@ -11,166 +11,41 @@
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
-                <th>
-                  ID
-                </th>
-                <th>
-                  Donation type
-                </th>
-                <th>
-                  Quantity of blood donated (ml)
-                </th>
-                <th>
-                  Date
-                </th>
-                <th>
-                  Number of people helped
-                </th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Normal
-                    </td>
-                    <td>
-                      350
-                    </td>
-                    <td>
-                      10-10-2020
-                    </td>
-                    <td class="text-primary">
-                      1
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Special
-                    </td>
-                    <td>
-                      300
-                    </td>
-                    <td>
-                      01-06-2020
-                    </td>
-                    <td class="text-primary">
-                      2
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Covid-19 plasma
-                    </td>
-                    <td>
-                      350
-                    </td>
-                    <td>
-                      05-04-2017
-                    </td>
-                    <td class="text-primary">
-                      1
-                    </td>
-                  </tr>
+                  <td>
+                    ID
+                  </td>
+                  <td>
+                    Donation type
+                  </td>
+                  <td>
+                    Quantity of blood donated (ml)
+                  </td>
+                  <td>
+                    Date
+                  </td>
 
-                </tbody>
+                </thead>
+                  <tr *ngFor="let donation of donations_list;">
+
+                    <td>
+                      {{donation.id}}
+                    </td>
+                    <td>
+                      {{donation.type}}
+                    </td>
+                    <td>
+                      450 ml
+                    </td>
+                    <td>
+                      {{donation.date}}
+                    </td>
+
+                  </tr>
               </table>
             </div>
           </div>
         </div>
       </div>
-      <!-- <div class="col-md-12">
-                  <div class="card card-plain">
-                      <div class="card-header card-header-danger">
-                          <h4 class="card-title mt-0">Medical test results</h4>
-                          <p class="card-category"> The test were performed after the donation</p>
-                      </div>
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table table-hover">
-                                  <thead class="">
-                                      <th>
-                                          ID
-                                      </th>
-                                      <th>
-                                          Hospital
-                                      </th>
-                                      <th>
-                                          Date
-                                      </th>
-                                      <th>
-                                          Test results
-                                      </th>
-                                      <th>
-                                          The blood was accepted
-                                      </th>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td>
-                                              1
-                                          </td>
-                                          <td>
-                                              Marie Curie
-                                          </td>
-                                          <td>
-                                              02-02-2010
-                                          </td>
-                                          <td>
-                                              PDF TO DOWNLOAD
-                                          </td>
-                                          <td>
-                                              No
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              2
-                                          </td>
-                                          <td>
-                                              Carol Davila
-                                          </td>
-                                          <td>
-                                             05-04-2017
-                                          </td>
-                                          <td>
-                                              PDF TO DOWNLOAD
-                                          </td>
-                                          <td>
-                                              Yes
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              3
-                                          </td>
-                                          <td>
-                                              Marie Curie
-                                          </td>
-                                          <td>
-                                            01-06-2020
-                                          </td>
-                                          <td>
-                                              PDF TO DOWNLOAD
-                                          </td>
-                                          <td>
-                                             Yes
-                                          </td>
-                                      </tr>
-
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div> -->
+    </div>
+    </div>
     </div>
