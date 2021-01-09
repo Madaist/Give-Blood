@@ -16,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { QrScannerComponent } from '../../qr-scanner/qr-scanner.component';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { WeightModalComponent } from '../../user-profile/weight-modal/weight-modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -30,14 +32,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     MatTooltipModule,
     ZXingScannerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
     MyDonationsComponent,
     LeaderboardComponent,
-    QrScannerComponent
+    QrScannerComponent,
+    WeightModalComponent
   ]
 })
 

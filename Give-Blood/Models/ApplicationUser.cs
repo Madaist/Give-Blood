@@ -16,14 +16,11 @@ namespace Give_Blood.Models
         public string Address { get; set; }
         public int NrOfPoints { get; set; }
         public DateTime BirthDate { get; set; }
+        public DateTime LastWeightUpdate { get; set; }
 
         public virtual League League { get; set; }
         public virtual ICollection<UserBadges> UserBadges { get; set; }
         public virtual ICollection<Donation> Donations { get; set; }
 
-        internal ICollection<UserDTO> OrderByDescending(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

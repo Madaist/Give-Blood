@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import { UserDTO } from '../models/user/userDTO';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { formatDate } from '@angular/common';
+import { WeightModalComponent } from './weight-modal/weight-modal.component';
 
 
 @Component({
@@ -14,15 +15,28 @@ import { formatDate } from '@angular/common';
 export class UserProfileComponent implements OnInit {
 
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
+  @ViewChild('weightModal', { static: false }) weightModal: WeightModalComponent;
   public user: UserDTO = new UserDTO();
   public donorStatus: string;
   public birthDate: string;
   updateUserForm: FormGroup;
+  public needsWeightUpdate: boolean;
 
   constructor(public fb: FormBuilder, private api: ApiService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
+    this.getUser();
+
+    this.api.checkWeightUpdateNeed().subscribe((response: boolean) => {
+      this.needsWeightUpdate = response;
+      if (this.needsWeightUpdate === true) {
+        this.weightModal.initialize();
+      }
+    });
+  }
+
+  getUser() {
     this.api['getUser']().subscribe((data: UserDTO) => {
       this.user = data;
       this.birthDate = formatDate(new Date(this.user.birthDate), 'yyyy-MM-dd', 'en_US');
@@ -35,7 +49,7 @@ export class UserProfileComponent implements OnInit {
       }
       this.initializeForm(this.user);
       console.log(this.user);
-    })
+    });
   }
 
   openSnackBar(message: string, action: string) {
@@ -43,6 +57,10 @@ export class UserProfileComponent implements OnInit {
       duration: 1000,
       panelClass: ['red-snackbar']
     });
+  }
+
+  onEditFinished(event: string) {
+    this.getUser();
   }
 
 

@@ -119,7 +119,8 @@ namespace Give_Blood.Areas.Identity.Pages.Account
                     Address=Input.Address, 
                     NrOfPoints = 0, 
                     BirthDate = Input.BirthDate,
-                    Age = (int)((DateTime.Now - Input.BirthDate).TotalDays / 365)
+                    Age = (int)((DateTime.Now - Input.BirthDate).TotalDays / 365),
+                    LastWeightUpdate = DateTime.Now
             };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);

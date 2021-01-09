@@ -17,3 +17,12 @@
   clear: both;
   display: table;
 }
+
+::ng-deep snack-bar-container.red-snackbar {
+  background-color: #f44336 !important;
+  color: white;
+}
+
+.red-snackbar .mat-simple-snackbar-action {
+  color: white;
+}
