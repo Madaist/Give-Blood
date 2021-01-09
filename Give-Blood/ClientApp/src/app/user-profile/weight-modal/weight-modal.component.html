@@ -1,0 +1,13 @@
+<div bsModal class=" row modal fade" #weightModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="weightModal"
+     aria-hidden="true" (onHide)="this.updateWeightForm.reset();">
+  <div class="col-md-6 col-sm-6 col-lg-4 mx-auto my-4" *ngIf="updateWeightForm">
+
+    <form class="text-center border border-light p-5" [formGroup]="updateWeightForm">
+      <p class="h4 mb-4">Update your weight: </p>
+      <input type="number" class="form-control mb-4" formControlName="weight" placeholder="Enter your weight" autocomplete="off"/>
+      <button class="btn btn-outline-light" id="submit-button" block=true [disabled]="updateWeightForm.invalid || updateWeightForm.pristine" (click)="updateWeight()">Submit</button>
+    </form>
+
+  </div>
+</div>
+

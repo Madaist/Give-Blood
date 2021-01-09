@@ -1,8 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { UserDTO } from './app/models/user/userDTO';
-import { User } from './app/models/user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +19,22 @@ export class ApiService {
     return this.http.get(this.baseUrl + '/User', { headers: this.header });
   }
 
+  updateUser(user: UserDTO) {
+    return this.http.put(this.baseUrl + '/User', user, { headers: this.header });
+  }
+
+  patchUser(weight: number) {
+    return this.http.patch(this.baseUrl + '/User', weight, { headers: this.header });
+  }
+
+  checkWeightUpdateNeed() {
+    return this.http.get(this.baseUrl + '/User/WeightUpdateNeed', { headers: this.header });
+  }
+
+  checkDonationNotification() {
+    return this.http.get(this.baseUrl + '/User/CheckDonationNotification', { headers: this.header });
+  }
+
   postDonation(qrCode: string) {
     return this.http.post(this.baseUrl + '/Donation', qrCode, { headers: this.header });
   }
@@ -35,7 +49,5 @@ export class ApiService {
     return this.http.get(this.baseUrl + '/Badge/GetUnassigned', { headers: this.header });
   }
 
-  updateUser(user: UserDTO) {
-    return this.http.put(this.baseUrl + '/User', user, { headers: this.header });
-  }
+  
 }

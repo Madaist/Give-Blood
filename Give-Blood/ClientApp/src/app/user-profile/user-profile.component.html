@@ -13,7 +13,7 @@
                 <div class="col-md-5">
                   <label>Status:</label>
                   <mat-form-field class="example-full-width">
-                    <input matInput id="status" formControlName="status" value={{donorStatus}} [style.color]="donorStatus === 'Eligible for donation' ? 'green' : 'red'" disabled>
+                    <input matInput id="status" formControlName="status" value={{donorStatus}} [style.color]="donorStatus === 'Eligible for donation' ? 'green' : 'red'" readonly>
                   </mat-form-field>
                 </div>
                 <div class="col-md-7">
@@ -102,3 +102,4 @@
     </div>
   </div>
 </div>
+<app-weight-modal #weightModal (change)="onEditFinished($event)"></app-weight-modal>

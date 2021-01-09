@@ -6,7 +6,6 @@ using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Give_Blood.Services.UserService
@@ -75,6 +74,7 @@ namespace Give_Blood.Services.UserService
        public void UpdateUserInfo(UserDTO userDTO)
         {
             ApplicationUser user = _userRepository.FindById(userDTO.Id);
+            var oldWeight = user.Weight;
             user.LastName = userDTO.LastName;
             user.FirstName = userDTO.FirstName;
             user.Address = userDTO.Address;
@@ -82,6 +82,8 @@ namespace Give_Blood.Services.UserService
             user.Weight = userDTO.Weight;
             user.BirthDate = userDTO.BirthDate;
             user.Age = (int)((DateTime.Now - userDTO.BirthDate).TotalDays / 365);
+            if(oldWeight != userDTO.Weight)
+                user.LastWeightUpdate = DateTime.Now;
 
             _userRepository.Update(user);
         }
@@ -101,6 +103,55 @@ namespace Give_Blood.Services.UserService
             if (user.NrOfPoints > 400) user.LeagueId = "9";
 
             _userRepository.Update(user);
+        }
+
+        public bool NeedsWeightUpdate(string userId)
+        {
+            var user = _userRepository.FindById(userId);
+            var currentDate = DateTime.Now;
+            if (currentDate.Subtract(user.LastWeightUpdate).TotalDays >= 30)
+                return true;
+            return false;
+        }
+
+        public string CheckNextPossibleDonationDate(string userId)
+        {
+            var userDonations = _donationRepository.FindByUserId(userId).OrderByDescending(x => x.Date);
+            if(userDonations != null && userDonations.Count() > 0)
+            {
+                var mostRecentDonationDate = userDonations.ElementAt(0).Date;
+                var nearestPossibleDonationDate = mostRecentDonationDate.AddDays(90);
+                if(DateTime.Now < nearestPossibleDonationDate)
+                {
+                    if(nearestPossibleDonationDate.Subtract(DateTime.Now).TotalDays <= 7)
+                    {
+                        var message = "Poti dona din nou, incepand cu data de " 
+                                      + nearestPossibleDonationDate.Day + "." 
+                                      + (nearestPossibleDonationDate.Month < 10? '0' + nearestPossibleDonationDate.Month.ToString() : nearestPossibleDonationDate.Month.ToString())
+                                      + "."+ nearestPossibleDonationDate.Year;
+                        return message;
+                    }
+                }
+                else
+                {
+                    return "Au trecut deja 3 luni de la ultima donatie. Poti dona din nou!";
+                }
+
+            }
+            return null;
+        } 
+
+        public bool PatchUser(string userId, int weight)
+        {
+            var user = _userRepository.FindById(userId);
+            if(user == null)
+            {
+                return false;
+            }
+            user.Weight = weight;
+            user.LastWeightUpdate = DateTime.Now;
+            _userRepository.Update(user);
+            return true;
         }
 
     }
