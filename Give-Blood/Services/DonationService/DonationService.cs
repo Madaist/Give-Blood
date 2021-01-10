@@ -6,6 +6,7 @@ using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.UserService;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Give_Blood.Services.DonationService
@@ -82,10 +83,21 @@ namespace Give_Blood.Services.DonationService
             return donationType;
         }
 
-        public IEnumerable<Donation> GetDonationsHistory(string userId)
+        public IEnumerable<DonationHistoryDTO> GetDonationsHistory(string userId)
         {
-            return _donationRepository.FindByUserId(userId); ;
-            
+            var userDonations = _donationRepository.FindByUserId(userId);
+            ICollection<DonationHistoryDTO> donationsDTO = new List<DonationHistoryDTO>();
+            foreach(Donation donation in userDonations)
+            {
+                DonationHistoryDTO donationDTO = new DonationHistoryDTO
+                {
+                    QrCode = donation.QrCode,
+                    Type = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(donation.Type.ToLower()).Replace("_", " "),
+                    Date = donation.Date.ToString("dd/M/yyyy", new CultureInfo("en-us"))
+                };
+                donationsDTO.Add(donationDTO);
+            }
+            return donationsDTO;
         }
     }
 }

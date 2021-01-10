@@ -1,4 +1,4 @@
-﻿using Give_Blood.Models;
+﻿using Give_Blood.DTOs;
 using Give_Blood.Services.DonationService;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -27,8 +27,9 @@ namespace Give_Blood.Controllers
             else
                 return BadRequest("Code already exists");
         }
+
         [HttpGet]
-        public IEnumerable<Donation> GetDonationsHistory()
+        public IEnumerable<DonationHistoryDTO> GetDonationsHistory()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             return _donationService.GetDonationsHistory(userId);

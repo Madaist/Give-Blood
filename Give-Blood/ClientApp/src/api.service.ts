@@ -42,18 +42,16 @@ export class ApiService {
   getTopThree() {
      return this.http.get(this.baseUrl + '/Leaderboard/TopThree', { headers: this.header });
   }
+
   getEntireTop() {
     return this.http.get(this.baseUrl + '/Leaderboard/All', { headers: this.header });
   }
+
   getUnassignedBagdes() {
     return this.http.get(this.baseUrl + '/Badge/GetUnassigned', { headers: this.header });
   }
 
-  updateUser(user: UserDTO) {
-    return this.http.put(this.baseUrl + '/User', user, { headers: this.header });
-  }
-
-  getDonationsHostory() {
+  getDonationsHistory() {
     return this.http.get(this.baseUrl + '/Donation', { headers: this.header });
   }
 
