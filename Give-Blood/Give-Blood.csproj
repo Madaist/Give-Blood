@@ -53,6 +53,8 @@
     <Compile Remove="Data\Migrations\20201204181919_Seed_Database.Designer.cs" />
     <Compile Remove="Data\Migrations\20201205211420_Removed_NrOfPoints_User.cs" />
     <Compile Remove="Data\Migrations\20201205211420_Removed_NrOfPoints_User.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210111175027_Romanian_translation.cs" />
+    <Compile Remove="Data\Migrations\20210111175027_Romanian_translation.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

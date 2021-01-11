@@ -104,7 +104,7 @@ export class UserProfileComponent implements OnInit {
         editedUser.age = years;
         this.user.age = years;
         if (editedUser.age >= 18 && editedUser.age <= 65 && editedUser.weight >= 50) {
-          this.donorStatus = 'Elibil pentru donare';
+          this.donorStatus = 'Eligibil pentru donare';
         }
         else {
           this.donorStatus = 'Neeligibil pentru donare';

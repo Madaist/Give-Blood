@@ -2,13 +2,13 @@
 {
     public class BadgeTypes
     {
-        public const string FirstDonationBadge = "FIRST_DONATION";
-        public const string DonationAfterLongTime = "DONATION_AFTER_LONG_TIME";
-        public const string DonationAfter3Months = "DONATION_AFTER_3_MONTHS";
-        public const string HolidayDonation = "HOLIDAY_DONATION";
-        public const string CovidPlasmaDonation = "COVID_PLASMA_DONATION";
-        public const string FirstSpecialDonation = "FIRST_SPECIAL_DONATION";
-        public const string ThreeDonationsIn9Months = "3_DONATIONS_IN_9_MONTHS";
+        public const string FirstDonationBadge = "PRIMA_DONARE";
+        public const string DonationAfterLongTime = "DONARE_DUPĂ_MULT_TIMP";
+        public const string DonationAfter3Months = "DONARE_DUPĂ_3_LUNI";
+        public const string HolidayDonation = "DONARE_DE_SĂRBĂTORI";
+        public const string CovidPlasmaDonation = "DONARE_DE_PLASMĂ_COVID";
+        public const string FirstSpecialDonation = "PRIMA_DONARE_SPECIALĂ";
+        public const string ThreeDonationsIn9Months = "3_DONĂRI_ÎN_9_LUNI";
 
     }
 }

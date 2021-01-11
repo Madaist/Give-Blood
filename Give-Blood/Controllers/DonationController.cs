@@ -25,9 +25,9 @@ namespace Give_Blood.Controllers
             if (isDonationCreated)
                 return Ok();
             else
-                return BadRequest("Code already exists");
+                return BadRequest("Cod deja existent");
         }
-
+        
         [HttpGet]
         public IEnumerable<DonationHistoryDTO> GetDonationsHistory()
         {
