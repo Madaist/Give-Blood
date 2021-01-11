@@ -32,11 +32,9 @@ export class WeightModalComponent {
 
   updateWeight() {
     this.weight = this.updateWeightForm.value.weight;
-    console.log("Weight is");
-    console.log(this.weight);
     this.apiService.patchUser(this.weight).subscribe(() => {
       Swal.fire({
-        title: 'Your profile was successfully updated.',
+        title: 'Profilul a fost actualizat cu success.',
         icon: 'success',
         width: '25vw',
         confirmButtonColor: '#f44336',
@@ -47,7 +45,7 @@ export class WeightModalComponent {
       (error: HttpErrorResponse) => {
         Swal.fire({
           icon: 'error',
-          title: 'Something went wrong',
+          title: 'Ceva nu a mers bine',
           text: error.error,
           confirmButtonColor: '#f44336',
           width: '30vw',

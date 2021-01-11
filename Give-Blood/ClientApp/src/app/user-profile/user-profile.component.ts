@@ -42,10 +42,10 @@ export class UserProfileComponent implements OnInit {
       this.birthDate = formatDate(new Date(this.user.birthDate), 'yyyy-MM-dd', 'en_US');
 
       if (this.user.age >= 18 && this.user.age <= 65 && this.user.weight >= 50) {
-        this.donorStatus = 'Eligible for donation';
+        this.donorStatus = 'Eligibil pentru donare';
       }
       else {
-        this.donorStatus = 'Not eligible for donation';
+        this.donorStatus = 'Neeligibil pentru donare';
       }
       this.initializeForm(this.user);
       console.log(this.user);
@@ -99,15 +99,15 @@ export class UserProfileComponent implements OnInit {
 
     this.api.updateUser(editedUser)
       .subscribe(() => {
-        this.openSnackBar("Changes were saved", "Ok");
+        this.openSnackBar("Modificările au fost salvate", "Ok");
 
         editedUser.age = years;
         this.user.age = years;
         if (editedUser.age >= 18 && editedUser.age <= 65 && editedUser.weight >= 50) {
-          this.donorStatus = 'Eligible for donation';
+          this.donorStatus = 'Elibil pentru donare';
         }
         else {
-          this.donorStatus = 'Not eligible for donation';
+          this.donorStatus = 'Neeligibil pentru donare';
         }
       },
         (error: Error) => {

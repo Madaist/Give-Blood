@@ -4,21 +4,21 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title ">Donatiile tale</h4>
-            <p class="card-category">...si vietile pe care le-ai salvat</p>
+            <h4 class="card-title ">Donările mele</h4>
+            <p class="card-category">...și viețile salvate</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
                   <td>
-                    Cod QR
+                    Codul QR
                   </td>
                   <td>
-                    Tip de donatie
+                    Tipul donării
                   </td>
                   <td>
-                    Cantitatea de sange donat (ml)
+                    Cantitatea de sânge donat (ml)
                   </td>
                   <td>
                     Data
@@ -29,7 +29,6 @@
 
                     <td>
                       <qrcode [qrdata]="donation.qrCode" [width]="100" [errorCorrectionLevel]="'M'"></qrcode>
-                      <!--{{donation.qrCode}}-->
                     </td>
                     <td style="padding-top: 8vh">
                       {{donation.type}}

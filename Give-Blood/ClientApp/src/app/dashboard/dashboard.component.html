@@ -1,23 +1,23 @@
 <div class="main-content">
   <div class="container-fluid">
-    <p> Your statistics </p>
+    <p> Stistici </p>
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
           <div class="card-header card-header-warning card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">Favorite</i>
+              <i class="material-icons">favorite</i>
             </div>
-            <p class="card-category">Sange donat (total)</p>
+            <p class="card-category">Sânge donat (total)</p>
             <h3 class="card-title">
               {{user.donatedBlood}}
-              <small>liters</small>
+              <small>litri</small>
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons text-danger">Avertisment</i>
-              <a>Nu deveni prea competitiv. Si tu ai nevoie de sange!</a>
+              <i class="material-icons text-danger">warning</i>
+              <a>Nu deveni prea competitiv. Și tu ai nevoie de sange!</a>
             </div>
           </div>
         </div>
@@ -26,16 +26,16 @@
         <div class="card card-stats">
           <div class="card-header card-header-success card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">Grupuri</i>
+              <i class="material-icons">groups</i>
             </div>
-            <p class="card-category">Numar de vieti salvate</p>
+            <p class="card-category">Numărul de vieți salvate</p>
             <h3 class="card-title">
               {{user.nrOfPeopleHelped}}
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              You're a hero!
+              Ești un erou!
             </div>
           </div>
         </div>
@@ -44,16 +44,16 @@
         <div class="card card-stats">
           <div class="card-header card-header-danger card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">spital_local</i>
+              <i class="material-icons">local_hospital</i>
             </div>
-            <p class="card-category">Numar donatii</p>
+            <p class="card-category">Număr donări</p>
             <h3 class="card-title">
               {{user.nrOfDonations}}
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">local_offer</i> Oamenii pentru care donezi iti sunt recunoscatori.
+              <i class="material-icons">local_offer</i> Oamenii pentru care donezi îți sunt recunoscători.
             </div>
           </div>
         </div>
@@ -62,15 +62,15 @@
         <div class="card card-stats">
           <div class="card-header card-header-info card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">Loialitate</i>
+              <i class="material-icons">loyalty</i>
               <!-- <i class="fa fa-hospital-user"></i> -->
             </div>
-            <p class="card-category">Points</p>
+            <p class="card-category">Puncte</p>
             <h3 class="card-title">{{user.numberOfPoints}}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">update</i> Tine-o tot asa!
+              <i class="material-icons">update</i> Ține-o tot așa!
             </div>
           </div>
         </div>
@@ -90,9 +90,6 @@
             <div class="tab-content">
               <div class="tab-pane active" id="profile">
                 <table class="table">
-                  <!--<tr *ngIf="user.badges == undefined || user.badges.length == 0">
-                    <td>You don't have any badges yet. Make a donation to receive one! </td>
-                  </tr>-->
                   <tr *ngFor="let badge of user.badges;">
                     <td><img src={{badge.icon}} matTooltip={{badge.name}} [matTooltipPosition]="'above'" style="width:50%; height:auto" /></td>
                     <td style="font-weight: 400; font-size:larger">{{badge.name}}</td>

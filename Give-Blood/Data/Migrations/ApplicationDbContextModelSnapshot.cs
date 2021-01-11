@@ -53,11 +53,11 @@ namespace Give_Blood.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("LastModifiedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastWeightUpdate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("LeagueId")
                         .HasColumnType("nvarchar(450)");
