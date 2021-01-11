@@ -7,7 +7,7 @@
             <i class="la la-gear"></i>
           </span>
           <h3 class="kt-portlet__head-title" style="color: red;">
-            Zoom in the QR code
+            Mariti codul QR
           </h3>
         </div>
       </div>
@@ -15,7 +15,7 @@
         <zxing-scanner *ngIf="scannerEnabled" #scanner (scanSuccess)="scanSuccessHandler($event)">
         </zxing-scanner>
         <button (click)="enableScanner()" *ngIf="!scannerEnabled" type="button" class="btn btn-danger">
-          Scan another QR code
+          Scanati alt cod QR
         </button>
       </div>
     </div>

@@ -11,9 +11,9 @@
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
-                <th> Username </th>
-                <th> League </th>
-                <th> Points </th>
+                <th> nume de utilizator </th>
+                <th> Liga </th>
+                <th> Puncte </th>
                 </thead>
                 <tbody>
                   <tr *ngFor="let user of users;">
@@ -37,7 +37,7 @@
     </div>
 
   </div>
-  <h3 *ngIf=" users.length == 1" style="text-align:center">You have no competitors in your league</h3>
+  <h3 *ngIf=" users.length == 1" style="text-align:center">Nu ai niciun competitor in liga din care faci parte</h3>
 
 
 
