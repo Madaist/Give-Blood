@@ -19,6 +19,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { QRCodeModule } from 'angularx-qrcode';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AboutComponent } from './about/about.component';
     NavMenuComponent,
     HomeComponent,
     AdminLayoutComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,6 +43,7 @@ import { AboutComponent } from './about/about.component';
       { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard]},
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'contact', component: ContactComponent },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ]),
     BrowserAnimationsModule,
@@ -54,6 +57,6 @@ import { AboutComponent } from './about/about.component';
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  exports: [AboutComponent]
+  exports: [AboutComponent, ContactComponent]
 })
 export class AppModule { }
