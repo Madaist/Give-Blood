@@ -1,6 +1,6 @@
 <div class="main-content">
   <div class="container-fluid">
-    <p> Your statistics </p>
+    <p> Stistici </p>
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
@@ -8,16 +8,16 @@
             <div class="card-icon">
               <i class="material-icons">favorite</i>
             </div>
-            <p class="card-category">Donated blood (total)</p>
+            <p class="card-category">Sânge donat (total)</p>
             <h3 class="card-title">
               {{user.donatedBlood}}
-              <small>liters</small>
+              <small>litri</small>
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
               <i class="material-icons text-danger">warning</i>
-              <a>Don't get too competitive. You need blood too!</a>
+              <a>Nu deveni prea competitiv. Și tu ai nevoie de sange!</a>
             </div>
           </div>
         </div>
@@ -28,14 +28,14 @@
             <div class="card-icon">
               <i class="material-icons">groups</i>
             </div>
-            <p class="card-category">Number of lives saved</p>
+            <p class="card-category">Numărul de vieți salvate</p>
             <h3 class="card-title">
               {{user.nrOfPeopleHelped}}
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              You're a hero!
+              Ești un erou!
             </div>
           </div>
         </div>
@@ -46,14 +46,14 @@
             <div class="card-icon">
               <i class="material-icons">local_hospital</i>
             </div>
-            <p class="card-category">Number of donations</p>
+            <p class="card-category">Număr donări</p>
             <h3 class="card-title">
               {{user.nrOfDonations}}
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">local_offer</i> The people you donated for are really thankful.
+              <i class="material-icons">local_offer</i> Oamenii pentru care donezi îți sunt recunoscători.
             </div>
           </div>
         </div>
@@ -65,12 +65,12 @@
               <i class="material-icons">loyalty</i>
               <!-- <i class="fa fa-hospital-user"></i> -->
             </div>
-            <p class="card-category">Points</p>
+            <p class="card-category">Puncte</p>
             <h3 class="card-title">{{user.numberOfPoints}}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">update</i> Keep going!
+              <i class="material-icons">update</i> Ține-o tot așa!
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
           <div class="card-header card-header-tabs card-header-primary">
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
-                <span class="nav-tabs-title">Badges:</span>
+                <span class="nav-tabs-title">Insigne:</span>
               </div>
             </div>
           </div>
@@ -90,9 +90,6 @@
             <div class="tab-content">
               <div class="tab-pane active" id="profile">
                 <table class="table">
-                  <!--<tr *ngIf="user.badges == undefined || user.badges.length == 0">
-                    <td>You don't have any badges yet. Make a donation to receive one! </td>
-                  </tr>-->
                   <tr *ngFor="let badge of user.badges;">
                     <td><img src={{badge.icon}} matTooltip={{badge.name}} [matTooltipPosition]="'above'" style="width:50%; height:auto" /></td>
                     <td style="font-weight: 400; font-size:larger">{{badge.name}}</td>
@@ -118,7 +115,7 @@
       <div class="col-lg-6 col-md-12">
         <div class="card">
           <div class="card-header card-header-warning">
-            <h4 class="card-title">League</h4>
+            <h4 class="card-title">Liga</h4>
             <h3 class="card-title" style="text-align:center">
               {{user.league.name}}
             </h3>

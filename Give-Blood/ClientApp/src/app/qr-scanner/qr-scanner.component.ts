@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class QrScannerComponent implements OnInit {
 
   private scannerEnabled: boolean = true;
-  private information: string = "No QR code detected. Zoom in a code in order to scan it.";
+  private information: string = "Niciun cod QR detectat. Apropie un cod pentru a-l scana.";
   private qrCode: string;
 
   constructor(private cd: ChangeDetectorRef, private api: ApiService) {
@@ -22,7 +22,7 @@ export class QrScannerComponent implements OnInit {
 
   public scanSuccessHandler($event: any) {
     this.scannerEnabled = false;
-    this.information = "Extracting the information... ";
+    this.information = "Se extrage informația.. ";
 
     console.log(String($event));
     if (this.validateQrCode(String($event))) {
@@ -30,8 +30,8 @@ export class QrScannerComponent implements OnInit {
       this.qrCode = String($event);
       this.api.postDonation(this.qrCode).subscribe((data: any) => {
         Swal.fire(
-          'The donation code was successfully sent.',
-          'You\'re a hero!',
+          'Codul donării a fost înregistrat cu succes.',
+          'Ești un erou!',
           'success'
         )
       },
@@ -50,7 +50,7 @@ export class QrScannerComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Invalid QR Code',
-        text: 'The code you are trying to scan is not a valid donation code',
+        text: 'Codul pe care ai încercat să îl scanezi nu este un cod de donare valid',
         confirmButtonColor: 'red',
         width: '30vw',
       })
@@ -60,7 +60,7 @@ export class QrScannerComponent implements OnInit {
 
   public enableScanner() {
     this.scannerEnabled = !this.scannerEnabled;
-    this.information = "No QR code detected. Zoom in a code in order to scan it.";
+    this.information = "Niciun cod QR detectat. Apropie un cod pentru a-l scana.";
   }
 
   public validateQrCode(qrCode: string) {

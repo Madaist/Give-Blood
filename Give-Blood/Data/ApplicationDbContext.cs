@@ -37,27 +37,27 @@ namespace Give_Blood.Data
             modelBuilder.Entity<UserBadges>().ToTable("UserBadges");
             modelBuilder.Entity<DonationInfo>().ToTable("DonationInfo");
 
-            modelBuilder.Entity<League>().HasData(new League { Id = "1", Name = "Bronze", Icon = "https://i.ibb.co/x2XhmKb/Badge-Bronze-Blank.png", MinPoints = 0, MaxPoints = 35 });
-            modelBuilder.Entity<League>().HasData(new League { Id = "2", Name = "Silver", Icon = "https://i.ibb.co/N1WvGS7/Badge-Silver-Blank.png", MinPoints = 36, MaxPoints = 70 });
-            modelBuilder.Entity<League>().HasData(new League { Id = "3", Name = "Gold", Icon = "https://i.ibb.co/ZKkccn9/Badge-Gold-Blank.png", MinPoints = 71, MaxPoints = 120 });
-            modelBuilder.Entity<League>().HasData(new League { Id = "4", Name = "Sapphire", Icon = "https://i.ibb.co/vYB15Vr/Badge-Sapphire-Blank.png", MinPoints = 121, MaxPoints = 160 });
-            modelBuilder.Entity<League>().HasData(new League { Id = "5", Name = "Ruby", Icon = "https://i.ibb.co/h1LK5dT/Badge-Ruby-Blank.png", MinPoints = 161, MaxPoints = 200 });
-            modelBuilder.Entity<League>().HasData(new League { Id = "6", Name = "Amethyst", Icon = "https://i.ibb.co/cLtG5RC/Badge-Amethyst-Blank.png", MinPoints = 201, MaxPoints = 250 });
-            modelBuilder.Entity<League>().HasData(new League { Id = "7", Name = "Pearl", Icon = "https://i.ibb.co/jMRMtRV/Badge-Pearl-Blank.png", MinPoints = 251, MaxPoints = 290 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "1", Name = "Bronz", Icon = "https://i.ibb.co/x2XhmKb/Badge-Bronze-Blank.png", MinPoints = 0, MaxPoints = 35 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "2", Name = "Argint", Icon = "https://i.ibb.co/N1WvGS7/Badge-Silver-Blank.png", MinPoints = 36, MaxPoints = 70 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "3", Name = "Aur", Icon = "https://i.ibb.co/ZKkccn9/Badge-Gold-Blank.png", MinPoints = 71, MaxPoints = 120 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "4", Name = "Safir", Icon = "https://i.ibb.co/vYB15Vr/Badge-Sapphire-Blank.png", MinPoints = 121, MaxPoints = 160 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "5", Name = "Rubin", Icon = "https://i.ibb.co/h1LK5dT/Badge-Ruby-Blank.png", MinPoints = 161, MaxPoints = 200 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "6", Name = "Ametist", Icon = "https://i.ibb.co/cLtG5RC/Badge-Amethyst-Blank.png", MinPoints = 201, MaxPoints = 250 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "7", Name = "Perla", Icon = "https://i.ibb.co/jMRMtRV/Badge-Pearl-Blank.png", MinPoints = 251, MaxPoints = 290 });
             modelBuilder.Entity<League>().HasData(new League { Id = "8", Name = "Obsidian", Icon = "https://i.ibb.co/kBdQq6p/Badge-Obsidian-Blank.png", MinPoints = 291, MaxPoints = 400 });
-            modelBuilder.Entity<League>().HasData(new League { Id = "9", Name = "Diamond", Icon = "https://i.ibb.co/DMRB8k9/Badge-Diamond-Blank.png", MinPoints = 401, MaxPoints = 10000 });
+            modelBuilder.Entity<League>().HasData(new League { Id = "9", Name = "Diamant", Icon = "https://i.ibb.co/DMRB8k9/Badge-Diamond-Blank.png", MinPoints = 401, MaxPoints = 10000 });
 
-            modelBuilder.Entity<DonationInfo>().HasData(new DonationInfo { DonationType = "ORDINARY_DONATION", NrOfPoints = 20, NrOfPeopleHelped = 3 });
-            modelBuilder.Entity<DonationInfo>().HasData(new DonationInfo { DonationType = "SPECIAL_DONATION", NrOfPoints = 25, NrOfPeopleHelped = 1 });
-            modelBuilder.Entity<DonationInfo>().HasData(new DonationInfo { DonationType = "COVID_PLASMA", NrOfPoints = 35, NrOfPeopleHelped = 3 });
+            modelBuilder.Entity<DonationInfo>().HasData(new DonationInfo { DonationType = "DONARE_NORMALA", NrOfPoints = 20, NrOfPeopleHelped = 3 });
+            modelBuilder.Entity<DonationInfo>().HasData(new DonationInfo { DonationType = "DONARE_SPECIALA", NrOfPoints = 25, NrOfPeopleHelped = 1 });
+            modelBuilder.Entity<DonationInfo>().HasData(new DonationInfo { DonationType = "PLASMA_COVID", NrOfPoints = 35, NrOfPeopleHelped = 3 });
 
-            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "1", Name = "FIRST_DONATION", NrOfPoints = 20, Icon = "https://i.ibb.co/sR1DLrn/first-donation.png" });
-            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "2", Name = "DONATION_AFTER_LONG_TIME", NrOfPoints = 10, Icon = "https://i.ibb.co/n0g1vd6/donation-long-time.png" });
-            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "3", Name = "DONATION_AFTER_3_MONTHS", NrOfPoints = 40, Icon = "https://i.ibb.co/CzCdhfC/three-months.png" });
-            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "4", Name = "HOLIDAY_DONATION", NrOfPoints = 50, Icon = "https://i.ibb.co/qWNvzRx/holiday-donation1.png" });
-            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "5", Name = "COVID_PLASMA_DONATION", NrOfPoints = 30, Icon = "https://i.ibb.co/QkPq2R9/covid-donation.png" });
-            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "6", Name = "FIRST_SPECIAL_DONATION", NrOfPoints = 35, Icon = "https://i.ibb.co/5hrRy80/special-badge.png" });
-            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "7", Name = "3_DONATIONS_IN_9_MONTHS", NrOfPoints = 60, Icon = "https://i.ibb.co/SJW0h2j/three-nine.png" });
+            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "1", Name = "PRIMA_DONARE", NrOfPoints = 20, Icon = "https://i.ibb.co/sR1DLrn/first-donation.png" });
+            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "2", Name = "DONARE_DUPA_MULT_TIMP", NrOfPoints = 10, Icon = "https://i.ibb.co/n0g1vd6/donation-long-time.png" });
+            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "3", Name = "DONARE_DUPA_3_LUNI", NrOfPoints = 40, Icon = "https://i.ibb.co/CzCdhfC/three-months.png" });
+            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "4", Name = "DONARE_DE_SARBATORI", NrOfPoints = 50, Icon = "https://i.ibb.co/qWNvzRx/holiday-donation1.png" });
+            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "5", Name = "DOANRE_DE_PLASMA_COVID", NrOfPoints = 30, Icon = "https://i.ibb.co/QkPq2R9/covid-donation.png" });
+            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "6", Name = "PRIMA_DONARE_SPECIALA", NrOfPoints = 35, Icon = "https://i.ibb.co/5hrRy80/special-badge.png" });
+            modelBuilder.Entity<Badge>().HasData(new Badge { Id = "7", Name = "3_DONARI_IN_9_LUNI", NrOfPoints = 60, Icon = "https://i.ibb.co/SJW0h2j/three-nine.png" });
         }
     }
 }

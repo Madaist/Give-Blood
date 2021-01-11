@@ -2,7 +2,7 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Autentificare";
 }
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,13 +18,13 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
                     <i class="fa fa-envelope icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
-                    <input asp-for="Input.Email" class="form-control" placeholder="Email address" style="text-align:center" />
+                    <input asp-for="Input.Email" class="form-control" placeholder="Adresa de email" style="text-align:center" />
                 </div>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
                 <br />
                 <div class="form-group" style="display: flex;width: 100%;margin-bottom: 15px;">
                     <i class="fa fa-key icon" style="padding: 10px;min-width: 50px;text-align: center;background:red;color:white"></i>
-                    <input asp-for="Input.Password" class="form-control " placeholder="Password" style="text-align:center" />
+                    <input asp-for="Input.Password" class="form-control " placeholder="Parolă" style="text-align:center" />
                 </div>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
                 <br />
@@ -37,14 +37,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-danger" style="opacity:2;transition: 0.3s;">Log in</button>
+                    <button type="submit" class="btn btn-danger" style="opacity:2;transition: 0.3s;">Conectare</button>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword" style="color:red;">Forgot your password?</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword" style="color:red;">Ți-ai uitat parola?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color:red;">Register as a new user</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color:red;">Crează-ți un cont nou</a>
                     </p>
                 </div>
             </form>
