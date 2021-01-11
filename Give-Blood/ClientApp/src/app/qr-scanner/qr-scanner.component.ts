@@ -38,7 +38,7 @@ export class QrScannerComponent implements OnInit {
         (error: HttpErrorResponse) => {
           Swal.fire({
             icon: 'error',
-            title: 'Invalid QR Code',
+            title: 'Cod QR invalid',
             text: error.error,
             confirmButtonColor: 'red',
             width: '30vw',
@@ -49,7 +49,7 @@ export class QrScannerComponent implements OnInit {
     else {
       Swal.fire({
         icon: 'error',
-        title: 'Invalid QR Code',
+        title: 'Cod QR invalid',
         text: 'Codul pe care ai încercat să îl scanezi nu este un cod de donare valid',
         confirmButtonColor: 'red',
         width: '30vw',

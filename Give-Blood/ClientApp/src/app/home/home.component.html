@@ -68,7 +68,7 @@
     <tbody>
       <tr class="active-row" *ngFor="let user of users;">
         <td>{{user.lastName}} {{user.firstName}}</td>
-        <td><img src={{user.league.icon}} matTooltip='{{user.league.name}} League, {{user.numberOfPoints}} points' [matTooltipPosition]="'above'" /></td>
+        <td><img src={{user.league.icon}} matTooltip='Liga de {{user.league.name}}, {{user.numberOfPoints}} puncte' [matTooltipPosition]="'above'" /></td>
       </tr>
     </tbody>
   </table>

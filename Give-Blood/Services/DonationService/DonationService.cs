@@ -76,7 +76,7 @@ namespace Give_Blood.Services.DonationService
                     }
                 default:
                     {
-                        throw new Exception("Invalid QR code");
+                        throw new Exception("Cod QR invalid");
                     }
             }
 

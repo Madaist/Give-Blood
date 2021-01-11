@@ -4,14 +4,16 @@ using Give_Blood.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Give_Blood.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210111180230_Translated_Romanian")]
+    partial class Translated_Romanian
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,42 +148,42 @@ namespace Give_Blood.Data.Migrations
                         {
                             Id = "2",
                             Icon = "https://i.ibb.co/n0g1vd6/donation-long-time.png",
-                            Name = "DONARE_DUPĂ_MULT_TIMP",
+                            Name = "DONARE_DUPA_MULT_TIMP",
                             NrOfPoints = 10
                         },
                         new
                         {
                             Id = "3",
                             Icon = "https://i.ibb.co/CzCdhfC/three-months.png",
-                            Name = "DONARE_DUPĂ_3_LUNI",
+                            Name = "DONARE_DUPA_3_LUNI",
                             NrOfPoints = 40
                         },
                         new
                         {
                             Id = "4",
                             Icon = "https://i.ibb.co/qWNvzRx/holiday-donation1.png",
-                            Name = "DONARE_DE_SĂRBĂTORI",
+                            Name = "DONARE_DE_SARBATORI",
                             NrOfPoints = 50
                         },
                         new
                         {
                             Id = "5",
                             Icon = "https://i.ibb.co/QkPq2R9/covid-donation.png",
-                            Name = "DONARE_DE_PLASMĂ_COVID",
+                            Name = "DONARE_DE_PLASMA_COVID",
                             NrOfPoints = 30
                         },
                         new
                         {
                             Id = "6",
                             Icon = "https://i.ibb.co/5hrRy80/special-badge.png",
-                            Name = "PRIMA_DONARE_SPECIALĂ",
+                            Name = "PRIMA_DONARE_SPECIALA",
                             NrOfPoints = 35
                         },
                         new
                         {
                             Id = "7",
                             Icon = "https://i.ibb.co/SJW0h2j/three-nine.png",
-                            Name = "3_DONĂRI_ÎN_9_LUNI",
+                            Name = "3_DONARI_IN_9_LUNI",
                             NrOfPoints = 60
                         });
                 });
@@ -230,13 +232,13 @@ namespace Give_Blood.Data.Migrations
                     b.HasData(
                         new
                         {
-                            DonationType = "DONARE_NORMALĂ",
+                            DonationType = "DONARE_NORMALA",
                             NrOfPeopleHelped = 3,
                             NrOfPoints = 20
                         },
                         new
                         {
-                            DonationType = "DONARE_SPECIALĂ",
+                            DonationType = "DONARE_SPECIALA",
                             NrOfPeopleHelped = 1,
                             NrOfPoints = 25
                         },

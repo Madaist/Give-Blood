@@ -4,7 +4,7 @@ import 'rxjs/add/operator/filter';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs';
-import PerfectScrollbar from 'perfect-scrollbar';
+//import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
 import { filter } from 'rxjs/operators';
 
@@ -26,9 +26,9 @@ export class AdminLayoutComponent implements OnInit {
     if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
       // if we are on windows OS we activate the perfectScrollbar function
 
-      document.getElementsByTagName('body')[0].classList.add('perfect-scrollbar-on');
+      //document.getElementsByTagName('body')[0].classList.add('perfect-scrollbar-on');
     } else {
-      document.getElementsByTagName('body')[0].classList.remove('perfect-scrollbar-off');
+      //document.getElementsByTagName('body')[0].classList.remove('perfect-scrollbar-off');
     }
     const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
     const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
@@ -54,8 +54,8 @@ export class AdminLayoutComponent implements OnInit {
       elemSidebar.scrollTop = 0;
     });
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-      let ps = new PerfectScrollbar(elemMainPanel);
-      ps = new PerfectScrollbar(elemSidebar);
+      //let ps = new PerfectScrollbar(elemMainPanel);
+      //ps = new PerfectScrollbar(elemSidebar);
     }
 
     const window_width = $(window).width();
@@ -146,8 +146,8 @@ export class AdminLayoutComponent implements OnInit {
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
       const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
-      const ps = new PerfectScrollbar(elemMainPanel);
-      ps.update();
+      //const ps = new PerfectScrollbar(elemMainPanel);
+      //ps.update();
     }
   }
   isMac(): boolean {
