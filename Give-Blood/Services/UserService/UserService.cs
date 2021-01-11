@@ -5,6 +5,7 @@ using Give_Blood.Repositories.DonationRepository;
 using Give_Blood.Repositories.LeagueRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
+using Give_Blood.Services.EmailSender;
 using System;
 using System.Linq;
 
@@ -17,14 +18,16 @@ namespace Give_Blood.Services.UserService
         private readonly ILeagueRepository _leagueRepository;
         private readonly IDonationRepository _donationRepository;
         private readonly IDonationInfoRepository _donationInfoRepository;
+        private readonly IEmailSender _emailSender;
 
-        public UserService(IUserRepository userRepository, ILeagueRepository leagueRepository, IBadgeService badgeService, IDonationRepository donationRepository, IDonationInfoRepository donationInfoRepository)
+        public UserService(IUserRepository userRepository, ILeagueRepository leagueRepository, IBadgeService badgeService, IDonationRepository donationRepository, IDonationInfoRepository donationInfoRepository, IEmailSender emailSender)
         {
             _userRepository = userRepository;
             _leagueRepository = leagueRepository;
             _badgeService = badgeService;
             _donationRepository = donationRepository;
             _donationInfoRepository = donationInfoRepository;
+            _emailSender = emailSender;
         }
 
         public UserDTO GetUserInfo(string userId)
@@ -123,10 +126,15 @@ namespace Give_Blood.Services.UserService
                 var nearestPossibleDonationDate = mostRecentDonationDate.AddDays(90);
                 if(DateTime.Now < nearestPossibleDonationDate)
                 {
-                    if(nearestPossibleDonationDate.Subtract(DateTime.Now).TotalDays <= 7)
+                    var dateDifference = nearestPossibleDonationDate.Subtract(DateTime.Now).TotalDays;
+                    if (dateDifference <= 7)
                     {
-                        var message = "Poti dona din nou, incepand cu data de "
-                                      + nearestPossibleDonationDate.ToString("dd/M/yyyy");
+                        var formattedDate = nearestPossibleDonationDate.ToString("dd/M/yyyy");
+                        var message = "Poti dona din nou, incepand cu data de " + formattedDate;
+                        if (dateDifference < 2)
+                        {
+                            SendMail(userId, formattedDate);
+                        }
                         return message;
                     }
                 }
@@ -136,7 +144,20 @@ namespace Give_Blood.Services.UserService
                 }
             }
             return null;
-        } 
+        }
+
+        public void SendMail(string userId, string date)
+        {
+            var user = _userRepository.FindById(userId);
+            var subject = "Vesti bune: poti dona din nou!";
+            var message = "Salut " + user.FirstName + ",<br /><br />"
+                + "Te anuntam ca incepand cu data de " + date
+                + " poti dona din nou! Te asteptam in centrele de transfuzii pentru a darui viata."
+                + "<br /><br /> P.S.: Nu amana! Pacientii au nevoie de tine acum.<br />"
+                + "Echipa Give Blood";
+
+            _emailSender.SendEmailAsync(user.Email, subject, message);
+        }
 
         public bool PatchUser(string userId, int weight)
         {

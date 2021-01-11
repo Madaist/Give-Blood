@@ -1,4 +1,5 @@
 using Give_Blood.Data;
+using Give_Blood.Helpers;
 using Give_Blood.Models;
 using Give_Blood.Repositories.BagdeRepository;
 using Give_Blood.Repositories.DonationInfoRepository;
@@ -8,6 +9,7 @@ using Give_Blood.Repositories.UserBadgesRepository;
 using Give_Blood.Repositories.UserRepository;
 using Give_Blood.Services.BadgeService;
 using Give_Blood.Services.DonationService;
+using Give_Blood.Services.EmailSender;
 using Give_Blood.Services.LeaderboardService;
 using Give_Blood.Services.UserService;
 using Microsoft.AspNetCore.Authentication;
@@ -71,6 +73,9 @@ namespace Give_Blood
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IDonationService, DonationService>();
             services.AddTransient<ILeaderboardService, LeaderboardService>();
+            services.AddTransient<IEmailSender, EmailSender>();
+
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
 
             services.Configure<IdentityOptions>(options =>
             {
