@@ -1,0 +1,199 @@
+:host {
+  position: absolute;
+  top: 0vh;
+  right: 0;
+  width: 100vw !important;
+  height: 100vh;
+  left: 0;
+  overflow-x: hidden !important;
+  background-color: #eee;
+}
+
+
+#carouselExampleIndicators {
+  width: 50vw;
+  height: 60vh !important;
+  position: relative;
+  top: 5vh;
+  left: 2vw;
+  float: left;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  top: 5em;
+}
+
+.carousel-indicators {
+  top: 20em;
+}
+
+#story {
+  width: 45vw;
+  height: 60vh;
+  position: relative;
+  float: right;
+  right: 1vw;
+  top: 12vh;
+  text-align: center;
+}
+
+#sign-in-button, #sign-up-button {
+  position: relative;
+  width: 10vw;
+  top: 10vh;
+}
+
+  #sign-in-button:hover, #sign-up-button:hover {
+    color: red;
+    background-color: #eee;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+#sign-in-button {
+  left: 20vw;
+  float: left;
+}
+
+#sign-up-button {
+  float: right;
+  right: 20vw;
+}
+
+.divider-text {
+  position: relative;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+  .divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+  }
+
+.btn-facebook {
+  background-color: #405D9D;
+  color: #fff;
+}
+
+.btn-twitter {
+  background-color: #42AEEC;
+  color: #fff;
+}
+
+
+#register-div, #login-div {
+  position: relative;
+  top: 18vh;
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #eee !important;
+}
+
+#log-in-a {
+  color: red;
+  font-weight: bolder;
+}
+
+a:hover span {
+  text-decoration: underline;
+}
+
+#or {
+  background-color: #eee !important;
+  color: red;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  table-layout: fixed;
+  width: 2%;
+  margin-bottom: 60%;
+  margin-left: 67%;
+}
+
+  .styled-table thead tr {
+    background-color: red;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+  }
+
+  .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+    .styled-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type {
+      border-bottom: 2px solid;
+    }
+
+    .styled-table tbody tr.active-row {
+      font-weight: bold;
+      color: red;
+    }
+
+.mat-tooltip {
+  white-space: pre-line;
+}
+
+#leaderboard-table {
+  z-index: 2;
+  position: absolute;
+  top: 17vh;
+  right: 150px;
+  min-width: 20%;
+  min-height: 20%;
+}
+
+#blood-drop-gif {
+  z-index: 1;
+  max-width: 25%;
+  max-height: 25%;
+  position: absolute;
+  top: 17vh;
+  right: 30vw;
+}
+
+#leaderboard-redirect {
+  position: absolute;
+  top: 72vh;
+  right: 15vw;
+  font-size: 14px;
+  color: red;
+}
+
+#trophey-gif {
+  z-index: 4;
+  position: absolute;
+  top: 60vh;
+  right: 4vw;
+  max-width: 20%;
+  max-height: 20%;
+}

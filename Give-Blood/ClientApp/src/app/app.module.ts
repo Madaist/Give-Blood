@@ -18,6 +18,8 @@ import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { QRCodeModule } from 'angularx-qrcode';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     NavMenuComponent,
     HomeComponent,
     AdminLayoutComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,7 +41,9 @@ import { QRCodeModule } from 'angularx-qrcode';
     RouterModule.forRoot([
       { path: 'login', component: HomeComponent },
       { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard]},
-      { path: '', component: HomeComponent  },
+      { path: '', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'contact', component: ContactComponent },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ]),
     BrowserAnimationsModule,
@@ -50,6 +56,7 @@ import { QRCodeModule } from 'angularx-qrcode';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [AboutComponent, ContactComponent]
 })
 export class AppModule { }

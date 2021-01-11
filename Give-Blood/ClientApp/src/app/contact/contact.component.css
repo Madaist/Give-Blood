@@ -1,0 +1,27 @@
+table,th,td {
+  font-family: Arial, Helvetica, Sans-Serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px;
+}
+
+th {
+  text-align: left;
+}
+
+div {
+  border: 1px;
+  padding-left: 50px;
+}
+
+table.position {
+  position: relative;
+  width: 100%;
+  table-layout: fixed;
+}
