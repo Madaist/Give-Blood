@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { WeightModalComponent } from '../../user-profile/weight-modal/weight-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { QRCodeModule } from 'angularx-qrcode';
+import { ModalComponent } from '../../qr-scanner/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     MyDonationsComponent,
     LeaderboardComponent,
     QrScannerComponent,
-    WeightModalComponent
+    WeightModalComponent,
+    ModalComponent
   ]
 })
 
