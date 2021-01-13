@@ -1,7 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
 import { ApiService } from '../../api.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-qr-scanner',
@@ -13,6 +14,7 @@ export class QrScannerComponent implements OnInit {
   private scannerEnabled: boolean = true;
   private information: string = "Niciun cod QR detectat. Apropie un cod pentru a-l scana.";
   private qrCode: string;
+  @ViewChild('popUp', { static: false }) modal: ModalComponent;
 
   constructor(private cd: ChangeDetectorRef, private api: ApiService) {
   }
@@ -29,11 +31,12 @@ export class QrScannerComponent implements OnInit {
 
       this.qrCode = String($event);
       this.api.postDonation(this.qrCode).subscribe((data: any) => {
-        Swal.fire(
-          'Codul donării a fost înregistrat cu succes.',
-          'Ești un erou!',
-          'success'
-        )
+        this.modal.initialize();
+        //Swal.fire(
+        //  'Codul donării a fost înregistrat cu succes.',
+        //  'Ești un erou!',
+        //  'success'
+        //)
       },
         (error: HttpErrorResponse) => {
           Swal.fire({
