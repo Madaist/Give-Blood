@@ -21,6 +21,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ModalComponent } from '../../qr-scanner/modal/modal.component';
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
     MatSnackBarModule,
     ModalModule.forRoot(),
     QRCodeModule,
-    JwSocialButtonsModule
+    JwSocialButtonsModule,
+    IvyCarouselModule
   ],
   declarations: [
     DashboardComponent,

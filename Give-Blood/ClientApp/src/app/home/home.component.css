@@ -10,21 +10,13 @@
 }
 
 
-#carouselExampleIndicators {
+carousel {
   width: 50vw;
   height: 60vh !important;
   position: relative;
   top: 5vh;
   left: 2vw;
   float: left;
-}
-
-.carousel-control-prev, .carousel-control-next {
-  top: 5em;
-}
-
-.carousel-indicators {
-  top: 20em;
 }
 
 #story {

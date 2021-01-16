@@ -1,61 +1,31 @@
 <body style="background-color:white">
   <app-nav-menu></app-nav-menu>
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="z-index:3;">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="https://i.ibb.co/59XGqvp/photo1.jpg" alt="First slide" />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Unul din șapte oameni care intră într-un spital are nevoie de sânge.</h5>
-        </div>
-
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://i.ibb.co/xX53F3z/blood-donation.jpg" alt="Second slide" />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>O unitate de sange poate salva pana la trei vieti.</h5>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://i.ibb.co/bbCb5J9/blood-donation-poster.jpg" alt="Third slide" />
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://i.ibb.co/RbDQwCz/image-axd.jpg" alt="Fourth slide" />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Nu exista substitut pentru sângele uman.</h5>
-        </div>
-      </div>
+  <carousel autoplay="true" autoplayInterval="3000" cellsToShow="1" loop=true>
+    <div class="carousel-cell">
+      <img src="https://i.ibb.co/dgZq2mG/photo1-1.jpg" alt="First slide">
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Următorul</span>
-    </a>
+    <div class="carousel-cell">
+      <img src="https://i.ibb.co/QkGNhsv/blood-donation-1.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-cell">
+      <img  src="https://i.ibb.co/fDz25vy/107317099-blooddonor976.jpg" alt="Third slide">
+    </div>
+  </carousel>
 
+  <div id="story" *ngIf="users == undefined || users.length == 0">
+    <h5>
+      Nu trebuie să ai o diplomă de medic pentru a salva o viață. Doar o diplomă de umanitate.
+    </h5>
+    <h5>
+      Crezi că nu ai prea multe de oferit? Ai cea mai prețioasă resursă dintre toate: abilitatea de a dona sânge.
+    </h5>
+
+    <br />
+    <h4>Cineva are nevoie de sânge o dată la două secunde.</h4>
+    <h4>Alege să fii erou.</h4>
+    <h4>Donează sânge.</h4>
   </div>
-
-<div id="story" *ngIf="users == undefined || users.length == 0">
-  <h5>
-    Nu trebuie să ai o diplomă de medic pentru a salva o viață. Doar o diplomă de umanitate.
-  </h5>
-  <h5>
-    Crezi că nu ai prea multe de oferit? Ai cea mai prețioasă resursă dintre toate: abilitatea de a dona sânge.
-  </h5>
-
-  <br />
-  <h4>Cineva are nevoie de sânge o dată la două secunde.</h4>
-  <h4>Alege să fii erou.</h4>
-  <h4>Donează sânge.</h4>
-</div>
 
   <table class="styled-table" id="leaderboard-table" *ngIf=" users.length != 0">
 
