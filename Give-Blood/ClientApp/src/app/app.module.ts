@@ -20,7 +20,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { QRCodeModule } from 'angularx-qrcode';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { ContactComponent } from './contact/contact.component';
     ComponentsModule,
     AngularFontAwesomeModule,
     MatTooltipModule,
-    QRCodeModule
+    QRCodeModule,
+    IvyCarouselModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

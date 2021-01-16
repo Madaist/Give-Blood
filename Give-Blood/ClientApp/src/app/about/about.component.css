@@ -10,7 +10,7 @@
 }
 
 
-#carouselExampleIndicators {
+carousel {
   width: 50vw;
   height: 60vh !important;
   position: relative;
@@ -19,13 +19,6 @@
   float: left;
 }
 
-.carousel-control-prev, .carousel-control-next {
-  top: 5em;
-}
-
-.carousel-indicators {
-  top: 20em;
-}
 
 #story {
   width: 45vw;
@@ -33,85 +26,7 @@
   position: relative;
   float: right;
   right: 1vw;
-  top: 12vh;
+  top: 6vh;
   text-align: center;
 }
 
-#sign-in-button, #sign-up-button {
-  position: relative;
-  width: 10vw;
-  top: 10vh;
-}
-
-  #sign-in-button:hover, #sign-up-button:hover {
-    color: red;
-    background-color: #eee;
-    transition: background-color 0.3s ease-in-out;
-  }
-
-#sign-in-button {
-  left: 20vw;
-  float: left;
-}
-
-#sign-up-button {
-  float: right;
-  right: 20vw;
-}
-
-.divider-text {
-  position: relative;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-  .divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-  }
-
-
-#register-div, #login-div {
-  position: relative;
-  top: 18vh;
-  width: 100vw;
-  height: 100vh;
-  margin-bottom: 0;
-  margin-top: 0;
-  background-color: #eee !important;
-}
-
-#log-in-a {
-  color: red;
-  font-weight: bolder;
-}
-
-a:hover span {
-  text-decoration: underline;
-}
-
-#or {
-  background-color: #eee !important;
-  color: red;
-}
-
-#leaderboard-redirect {
-  position: absolute;
-  top: 72vh;
-  right: 15vw;
-  font-size: 14px;
-  color: red;
-}
