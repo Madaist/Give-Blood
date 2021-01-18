@@ -149,12 +149,13 @@ namespace Give_Blood.Services.UserService
         public void SendMail(string userId, string date)
         {
             var user = _userRepository.FindById(userId);
-            var subject = "Vesti bune: poti dona din nou!";
+            var subject = "Vești bune: poți dona din nou!";
             var message = "Salut " + user.FirstName + ",<br /><br />"
-                + "Te anuntam ca incepand cu data de " + date
-                + " poti dona din nou! Te asteptam in centrele de transfuzii pentru a darui viata."
-                + "<br /><br /> P.S.: Nu amana! Pacientii au nevoie de tine acum.<br />"
-                + "Echipa Give Blood";
+                + "Te anunțăm că începând cu data de " + date
+                + " poți dona din nou! Te așteptăm în centrele de transfuzii pentru a salva vieți."
+                + "<br />Nu amâna! Pacienții au nevoie de tine acum.<br /><br />" 
+                + "<img src=https://i.ibb.co/pKxYs6N/Whats-App-Image-2021-01-18-at-20-11-00.jpg />"
+                + "<br /><br />Echipa Give Blood, pentru o lume mai bună.";
 
             _emailSender.SendEmailAsync(user.Email, subject, message);
         }
