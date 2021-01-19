@@ -8,7 +8,6 @@ using Give_Blood.Services.EmailSender;
 using Give_Blood.Services.UserService;
 using Moq;
 using System;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
@@ -17,7 +16,6 @@ namespace GiveBloodTests
 {
     public class UserServiceTests
     {
-
         private Mock<IUserRepository> userRepositoryMock;
         private Mock<ILeagueRepository> leagueRepositoryMock;
         private Mock<IDonationRepository> donationRepositoryMock;
