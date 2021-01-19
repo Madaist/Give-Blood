@@ -8,6 +8,9 @@ using Give_Blood.Services.EmailSender;
 using Give_Blood.Services.UserService;
 using Moq;
 using System;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace GiveBloodTests
@@ -65,7 +68,6 @@ namespace GiveBloodTests
                 Id = userId,
                 LastWeightUpdate = DateTime.Now
             });
-
             var response = userService.NeedsWeightUpdate(userId);
             Assert.False(response);
         }
@@ -80,12 +82,76 @@ namespace GiveBloodTests
             {
                 Id = userId,
             });
-
+         
             userService.PatchUser(userId, weight);
             var updatedUser = userRepositoryMock.Object.FindById(userId);
             Assert.Equal(weight, updatedUser.Weight);
         }
 
-       
+        [Fact]
+        public void CheckNextPossibleDonationDateSendMail()
+        {
+            Setup();
+            var userId = Guid.NewGuid().ToString();
+            userRepositoryMock.Setup(u => u.FindById(userId)).Returns(new ApplicationUser
+            {
+                Id = userId,
+                FirstName = "Give Blood User"
+            });
+            Donation[] userDonations =
+            {
+                new Donation
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = userId,
+                    Date = DateTime.Now.AddDays(-89)
+                }
+            };
+            emailSenderMock.Setup(u => u.SendEmailAsync("email", "subject", "message")).Returns(Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.OK)));
+            donationRepositoryMock.Setup(u => u.FindByUserId(userId)).Returns(userDonations);
+            var message = userService.CheckNextPossibleDonationDate(userId);
+            Assert.Contains("Poti dona din nou, incepand cu data de", message);
+        }
+
+        [Fact]
+        public void CheckNextPossibleDonationDateAfter3Months()
+        {
+            Setup();
+            var userId = Guid.NewGuid().ToString();
+            Donation[] userDonations =
+            {
+                new Donation
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = userId,
+                    Date = DateTime.Now.AddDays(-91)
+                }
+            };
+            donationRepositoryMock.Setup(u => u.FindByUserId(userId)).Returns(userDonations);
+            var message = userService.CheckNextPossibleDonationDate(userId);
+            Assert.Equal("Au trecut deja 3 luni de la ultima donatie. Poti dona din nou!", message);
+        }
+
+
+        [Fact]
+        public void CheckNextPossibleDonationDateReturnsNull()
+        {
+            Setup();
+            var userId = Guid.NewGuid().ToString();
+            Donation[] userDonations =
+            {
+                new Donation
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = userId,
+                    Date = DateTime.Now.AddDays(-60)
+                }
+            };
+            donationRepositoryMock.Setup(u => u.FindByUserId(userId)).Returns(userDonations);
+            var message = userService.CheckNextPossibleDonationDate(userId);
+            Assert.Null(message);
+        }
+
+
     }
 }
