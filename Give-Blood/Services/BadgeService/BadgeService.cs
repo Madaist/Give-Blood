@@ -39,7 +39,7 @@ namespace Give_Blood.Services.BadgeService
             Check3DonationsIn9MonthsBadge(user, alreadyAssignedBadges);
         }
 
-        public void Check3DonationsIn9MonthsBadge(ApplicationUser user, ICollection<string> assignedBadges)
+        public bool Check3DonationsIn9MonthsBadge(ApplicationUser user, ICollection<string> assignedBadges)
         {
             var userDonations = _donationRepository.FindByUserId(user.Id).OrderByDescending(x => x.Date);
 
@@ -56,12 +56,14 @@ namespace Give_Blood.Services.BadgeService
                     if (period1 >= 85 && period1 <= 100 && period2 >= 85 && period2 <= 100)
                     {
                         AssignBadgeToUser(BadgeTypes.ThreeDonationsIn9Months, user);
+                        return true;
                     }
                 }
             }
+            return false;
         }
 
-        public void CheckFirstSpecialDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
+        public bool CheckFirstSpecialDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
         {
             if (!assignedBadges.Contains(BadgeTypes.FirstSpecialDonation))
             {
@@ -72,12 +74,14 @@ namespace Give_Blood.Services.BadgeService
                     if (mostRecentDonationType == DonationTypes.SpecialDonation)
                     {
                         AssignBadgeToUser(BadgeTypes.FirstSpecialDonation, user);
+                        return true;
                     }
                 }
             }
+            return false;
         }
 
-        public void CheckCovidPlasmaDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
+        public bool CheckCovidPlasmaDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
         {
             if (!assignedBadges.Contains(BadgeTypes.CovidPlasmaDonation))
             {
@@ -88,12 +92,14 @@ namespace Give_Blood.Services.BadgeService
                     if (mostRecentDonationType == DonationTypes.CovidPlasmaDonation)
                     {
                         AssignBadgeToUser(BadgeTypes.CovidPlasmaDonation, user);
+                        return true;
                     }
                 }
             }
+            return false;
         }
 
-        public void CheckHolidayDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
+        public bool CheckHolidayDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
         {
             if (!assignedBadges.Contains(BadgeTypes.HolidayDonation))
             {
@@ -104,12 +110,14 @@ namespace Give_Blood.Services.BadgeService
                     if (mostRecentDonationDate.Month == 12 || mostRecentDonationDate.Month == 1)
                     {
                         AssignBadgeToUser(BadgeTypes.HolidayDonation, user);
+                        return true;
                     }
                 }
             }
+            return false;
         }
 
-        public void CheckDonationAfter3MonthsBadge(ApplicationUser user, ICollection<string> assignedBadges)
+        public bool CheckDonationAfter3MonthsBadge(ApplicationUser user, ICollection<string> assignedBadges)
         {
             var userDonations = _donationRepository.FindByUserId(user.Id).OrderByDescending(x => x.Date);
             if (!assignedBadges.Contains(BadgeTypes.DonationAfter3Months) && userDonations != null && userDonations.Count() >= 2)
@@ -122,12 +130,14 @@ namespace Give_Blood.Services.BadgeService
                     if (period >= 85 && period <= 100)
                     {
                         AssignBadgeToUser(BadgeTypes.DonationAfter3Months, user);
+                        return true;
                     }
                 }
             }
+            return false;
         }
 
-        public void CheckDonationAfterLongTimeBadge(ApplicationUser user, ICollection<string> assignedBadges)
+        public bool CheckDonationAfterLongTimeBadge(ApplicationUser user, ICollection<string> assignedBadges)
         {
             var userDonations = _donationRepository.FindByUserId(user.Id).OrderByDescending(x => x.Date);
             if (!assignedBadges.Contains(BadgeTypes.DonationAfterLongTime) && userDonations != null && userDonations.Count() >= 2)
@@ -140,12 +150,14 @@ namespace Give_Blood.Services.BadgeService
                     if (period >= 365)
                     {
                         AssignBadgeToUser(BadgeTypes.DonationAfterLongTime, user);
+                        return true;
                     }
                 }
             }
+            return false;
         }
 
-        public void CheckFirstDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
+        public bool CheckFirstDonationBadge(ApplicationUser user, ICollection<string> assignedBadges)
         {
             if (!assignedBadges.Contains(BadgeTypes.FirstDonationBadge))
             {
@@ -153,8 +165,10 @@ namespace Give_Blood.Services.BadgeService
                 if (userDonations != null && userDonations.Count() == 1)
                 {
                     AssignBadgeToUser(BadgeTypes.FirstDonationBadge, user);
+                    return true;
                 }
             }
+            return false;
         }
 
         public void AssignBadgeToUser(string badgeName, ApplicationUser user)

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Give-Blood", "Give-Blood\Give-Blood.csproj", "{EECFD04D-78AC-4137-BD94-4B87352D588E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Give-Blood", "Give-Blood\Give-Blood.csproj", "{EECFD04D-78AC-4137-BD94-4B87352D588E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiveBloodTests", "GiveBloodTests\GiveBloodTests.csproj", "{2B1F91F7-80E3-477E-8DBD-2C01CEDFF519}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EECFD04D-78AC-4137-BD94-4B87352D588E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EECFD04D-78AC-4137-BD94-4B87352D588E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EECFD04D-78AC-4137-BD94-4B87352D588E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B1F91F7-80E3-477E-8DBD-2C01CEDFF519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B1F91F7-80E3-477E-8DBD-2C01CEDFF519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B1F91F7-80E3-477E-8DBD-2C01CEDFF519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B1F91F7-80E3-477E-8DBD-2C01CEDFF519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
