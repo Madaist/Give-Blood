@@ -6,7 +6,6 @@ namespace Give_Blood.Services.BadgeService
 {
     public interface IBadgeService
     {
-        //public List<string> getAssignedBadgIds(ApplicationUser user);
         public void AssignBadges(ApplicationUser user);
         public bool Check3DonationsIn9MonthsBadge(ApplicationUser user, ICollection<string> assignedBadges);
         public bool CheckFirstSpecialDonationBadge(ApplicationUser user, ICollection<string> assignedBadges);
@@ -18,7 +17,6 @@ namespace Give_Blood.Services.BadgeService
         public void AssignBadgeToUser(string badgeName, ApplicationUser user);
         public ICollection<string> GetAssignedBadges(ApplicationUser user);
         public ICollection<BadgeDTO> GetAssignedBadgesDTO(ApplicationUser user);
-
         public ICollection<Badge> GetAll();
         public ICollection<BadgeDTO> GetUnassignedBadgesDTO(string userId);
 

@@ -30,14 +30,15 @@ namespace Give_Blood.Services.DonationService
         {
             bool isCreated = true;
             ApplicationUser user = _userRepository.FindById(userId);
+
             var allDonationCodes = _donationRepository.GetAll().Select(x => x.QrCode);
             if (allDonationCodes.Contains(donationCode))
             {
                 isCreated = false;
                 return isCreated;
             }
-            string donationType;
-            donationType = GetDonationType(donationCode);
+
+            string donationType = GetDonationType(donationCode);
             Donation donation = new Donation
             {
                 Id = Guid.NewGuid().ToString(),
@@ -46,8 +47,11 @@ namespace Give_Blood.Services.DonationService
                 Date = DateTime.Now,
                 QrCode = donationCode
             };
+
             _donationRepository.Create(donation);
+
             user.NrOfPoints += _donationInfoRepository.FindById(donationType).NrOfPoints;
+
             _userRepository.Update(user);
             _userService.UpdateLeagueandBadges(userId);
 
